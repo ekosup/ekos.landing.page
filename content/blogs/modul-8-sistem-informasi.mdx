@@ -1,0 +1,113 @@
+---
+title: "M8: Sistem Informasi"
+description: "Ringkasan 5 bab utama Modul 8 yang memetakan siklus hidup pengembangan sistem informasi."
+date: "2025-11-15"
+author: "Eko Supriyono"
+tags:
+  - Sistem Informasi
+  - Information Systems
+  - SDLC
+  - UML
+  - SQL
+  - Software Testing
+slug: "modul-8-sistem-informasi"
+draft: false
+readingTime: "10 min"
+---
+
+# Ringkasan Modul 8: Sistem Informasi
+
+> Ringkasan ini disusun berdasarkan 5 materi pokok dari Modul 8 (Bab II - Bab VI) untuk memetakan siklus hidup pengembangan sistem informasi.
+
+## Bab II: Pengenalan Sistem Informasi
+
+- **Definisi:** Sistem Informasi (SI) adalah kesatuan komponen (komputer, database, SDM, jaringan, prosedur) yang dioperasikan secara terpadu untuk mengumpulkan, memproses, menyimpan, dan menyajikan informasi guna mendukung tujuan organisasi.
+- **Tujuan Informasi (3 Pilar):** Informasi yang dihasilkan harus berkualitas, yaitu Relevan (relevance), Tepat Waktu (timeliness), dan Akurat (accurate).
+- **Jenis Arsitektur SI:**
+  - **Tersentralisasi:** Semua pemrosesan data dilakukan di satu komputer pusat (mainframe).
+  - **Desentralisasi:** Pemrosesan data tersebar di berbagai lokasi yang terhubung.
+  - **Client-Server:** Arsitektur modern di mana Client (pengguna) melakukan permintaan data/layanan dan Server menyediakan data/layanan tersebut.
+- **Daur Hidup Pengembangan Sistem (SDLC):**
+  - **Waterfall:** Model klasik yang bersifat sekuensial (berurutan). Setiap tahap harus selesai sebelum lanjut ke tahap berikutnya (Requirements → Design → Coding → Testing → Maintenance).
+  - **Iterative:** Pengembangan dilakukan secara berulang. Versi awal dibuat ringkas, lalu disempurnakan pada iterasi berikutnya.
+  - **Incremental:** Sistem dipecah menjadi bagian-bagian kecil (increments) dan dibangun satu per satu hingga lengkap.
+  - **Agile:** Metode adaptif yang fokus pada pengembangan cepat dalam siklus pendek (sprint), memungkinkan adaptasi cepat terhadap perubahan kebutuhan.
+
+## Bab III: Analisis Kebutuhan Sistem Informasi
+
+Ini adalah fase krusial untuk memahami masalah dan mendefinisikan apa yang harus dilakukan sistem. Kegagalan di tahap ini (poor requirements management) adalah penyebab utama kegagalan proyek TI.
+
+- **Analisis Permasalahan:** Mengidentifikasi "akar permasalahan" (root cause) dan bukan hanya gejalanya.
+- **Alat Bantu Analisis Masalah:**
+  - **Kerangka PIECES:** Mengkategorikan masalah berdasarkan:
+    - _Performance (Kinerja, mis: response time lambat)._
+    - _Information (Informasi, mis: data tidak akurat)._
+    - _Economy (Ekonomi, mis: biaya terlalu tinggi)._
+    - _Control (Kontrol & Keamanan, mis: data tidak aman)._
+    - _Efficiency (Efisiensi, mis: proses boros sumber daya)._
+    - _Service (Layanan, mis: sistem tidak mudah digunakan)._
+  - **Diagram Fishbone (Ishikawa):** Alat visual untuk memetakan berbagai penyebab (Man, Method, Machine, Material, dll.) dari satu akibat (masalah).
+- **Analisis Stakeholder (RACI):** Memetakan peran pemangku kepentingan:
+  - _Responsible:_ Yang mengerjakan tugas.
+  - _Accountable:_ Yang bertanggung jawab atas hasil akhir (hanya satu orang).
+  - _Consulted:_ Yang dimintai masukan/konsultasi.
+  - _Informed:_ Yang diberi informasi tentang progres.
+- **Studi Kelayakan (TELOS):** Menilai kelayakan solusi yang diusulkan dari segi: Technical (Teknis), Economic (Ekonomi), Legal (Hukum), Operational (Operasional), Schedule (Jadwal).
+
+## Bab IV: Perancangan Sistem Informasi
+
+Tahap ini menerjemahkan kebutuhan (requirements) menjadi model dan blueprint teknis (spesifikasi) tentang bagaimana sistem akan dibangun.
+
+- **Pemodelan Proses (Pendekatan Prosedural):**
+  - **DFD (Data Flow Diagram):** Menggambarkan aliran data dalam sistem. Terdiri dari Diagram Konteks (level tertinggi), Diagram Zero, dan Diagram Rinci (level n).
+- **Pemodelan Proses (Pendekatan Berorientasi Objek - UML):**
+  - **Use Case Diagram:** Menggambarkan fungsionalitas sistem dari perspektif pengguna (Aktor).
+  - **Class Diagram:** Menggambarkan struktur statis sistem (kelas, atribut, dan relasinya).
+  - **Activity Diagram:** Menggambarkan alur kerja (mirip flowchart).
+  - **Sequence Diagram:** Menggambarkan interaksi antar objek berdasarkan urutan waktu.
+- **Perancangan Antarmuka Pengguna (UI/UX):**
+  - **Rancangan Masukan (Input):** Desain formulir agar mudah diisi, akurat, dan atraktif.
+  - **Rancangan Keluaran (Output):** Desain laporan (Tabel, Grafik) agar informasi mudah dipahami.
+- **Perancangan Arsitektur (Pola Arsitektur):**
+  - **MVC (Model-View-Controller):** Pola paling umum (terutama untuk aplikasi web). Memisahkan data (Model), tampilan (View), dan logika bisnis/kontrol (Controller).
+  - **Layered Architecture:** Mengatur sistem dalam lapisan-lapisan (mis: UI, Business Logic, Data Access).
+  - **Client-Server:** Memisahkan antara klien (peminta layanan) dan server (penyedia layanan).
+
+## Bab V: Pembangunan, Pengembangan, dan Uji Coba SI
+
+Tahap ini adalah proses coding (penerjemahan desain ke program) dan pengujiannya.
+
+- **Algoritma Pemrograman:**
+  - **Struktur Alur:** Berurutan (Sequence), Pemilihan (Selection / if-else), dan Pengulangan (Repetition / for, while).
+  - **Flowchart:** Alat visual untuk menggambarkan logika algoritma.
+- **Paradigma Pemrograman:**
+  - **PBO (Pemrograman Berorientasi Objek):** Paradigma dominan yang menggunakan konsep Class (blueprint) dan Object (instance dari class).
+  - **Prinsip PBO:** Abstraction, Encapsulation (menyembunyikan data), Inheritance (pewarisan), dan Polymorphism (banyak bentuk).
+- **Pemrograman Database (SQL):**
+  - **DDL (Data Definition Language):** Perintah untuk mendefinisikan struktur (CREATE, ALTER, DROP).
+  - **DML (Data Manipulation Language):** Perintah untuk memanipulasi data (SELECT, INSERT, UPDATE, DELETE).
+  - **DCL (Data Control Language):** Perintah untuk hak akses (GRANT, REVOKE).
+- **Strategi Pengujian Program:**
+  - **White Box Testing:** Menguji berdasarkan pengetahuan struktur kode internal.
+  - **Black Box Testing:** Menguji berdasarkan fungsionalitas (input dan output) tanpa melihat kode internal.
+- **Jenis Pengujian (Level):**
+  - **Unit Testing:** Pengujian per modul/blok kode (dilakukan oleh developer).
+  - **Integration Testing:** Pengujian gabungan antar modul.
+  - **System Testing:** Pengujian sistem secara keseluruhan.
+  - **UAT (User Acceptance Test):** Pengujian oleh pengguna akhir untuk memastikan sistem sesuai kebutuhan.
+
+## Bab VI: Pemantauan Kinerja Sistem Informasi
+
+Setelah sistem berjalan (live), sistem harus dipantau dan dipelihara.
+
+- **Tujuan Pemantauan:** Memastikan sistem berjalan sesuai prosedur dan mendeteksi masalah secara dini.
+- **Hasil Pemantauan:** Mengetahui kondisi terkini sistem, apakah masih relevan, atau ada masalah yang memerlukan perbaikan.
+- **Motif Pemeliharaan Perangkat Lunak:**
+  - **Perbaikan Kesalahan (Corrective):** Memperbaiki bug atau kesalahan.
+  - **Adaptasi Lingkungan (Adaptive):** Menyesuaikan sistem dengan perubahan (mis: OS baru, regulasi baru).
+  - **Penambahan Fungsionalitas (Perfective):** Menambah fitur baru sesuai kebutuhan bisnis yang berkembang.
+- **Prediksi Pemeliharaan:** Menganalisis metrik proses (mis: jumlah laporan bug, waktu implementasi perubahan) untuk memprediksi penurunan kualitas sistem dan merencanakan biaya pemeliharaan.
+
+---
+
+> Catatan: Ringkasan ini mencakup siklus hidup pengembangan sistem informasi secara komprehensif. Tambahkan diagram UML, contoh kode SQL, atau studi kasus SDLC untuk pemahaman yang lebih mendalam.

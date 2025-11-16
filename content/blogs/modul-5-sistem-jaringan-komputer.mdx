@@ -1,0 +1,167 @@
+---
+title: "M5: Sistem Jaringan Komputer"
+description: "Ringkasan empat pilar utama dalam manajemen sistem jaringan komputer: Analisis, Perancangan, Penerapan, dan Evaluasi."
+date: "2025-11-15"
+author: "Eko Supriyono"
+tags:
+  - Sistem Jaringan Komputer
+  - Network Systems
+  - Networking
+  - TCP/IP
+  - OSI Model
+  - Subnetting
+slug: "modul-5-sistem-jaringan-komputer"
+draft: false
+readingTime: "12 min"
+---
+
+# Ringkasan Modul 5: Sistem Jaringan Komputer
+
+> Ringkasan ini mencakup empat pilar utama dalam manajemen sistem jaringan komputer: Analisis, Perancangan, Penerapan, dan Evaluasi.
+
+## 1. Analisis Kebutuhan Sistem Jaringan
+
+Tahap ini berfokus pada pemahaman konsep dasar, komponen, dan analisis kebutuhan pengguna sebelum jaringan dibangun.
+
+### Konsep Dasar Komunikasi
+
+- **Jaringan Komputer:** Sekumpulan perangkat (komputer, printer, server) yang terhubung untuk berbagi sumber daya (sharing resources), berkomunikasi, dan mengintegrasikan data.
+- **Model Layering:** Komunikasi data dipecah menjadi beberapa lapisan (layer) untuk standarisasi.
+- **Model OSI (7 Lapis):** Model referensi teoretis (Physical, Data Link, Network, Transport, Session, Presentation, Application).
+- **Model TCP/IP (4 Lapis):** Model praktis yang digunakan internet (Network Access, Internet, Transport, Application).
+
+[PLACEHOLDER ILUSTRASI: Perbandingan visual Model OSI 7 Lapis dan Model TCP/IP]
+
+### Klasifikasi Jaringan (Berdasarkan Geografis)
+
+- **PAN (Personal Area Network):** Jarak sangat dekat (mis: Bluetooth).
+- **LAN (Local Area Network):** Mencakup satu gedung atau area terbatas (mis: jaringan kantor, kampus).
+- **MAN (Metropolitan Area Network):** Mencakup area kota, biasanya gabungan beberapa LAN.
+- **WAN (Wide Area Network):** Mencakup area geografis luas (antar kota, negara, atau benua).
+- **GAN (Global Area Network):** Jaringan global (contoh: Internet).
+
+### Pengalamatan IP (IP Addressing)
+
+- **IP Address:** Alamat logis 32-bit (untuk IPv4) yang unik untuk setiap perangkat di jaringan (mis: 192.168.1.10).
+- **Subnetting:** Proses memecah satu jaringan besar menjadi beberapa jaringan kecil (sub-jaringan atau subnet) untuk efisiensi, keamanan, dan pengelolaan.
+
+#### Contoh Implementasi (Subnetting VLSM)
+
+Sebuah sekolah dengan IP 202.40.10.0/24 perlu membagi jaringannya:
+
+- **Kebutuhan 1 (Siswa):** 108 host.
+- **Kebutuhan 2 (Guru):** 55 host.
+- **Kebutuhan 3 (Teknisi):** 26 host.
+
+**Solusi (Menggunakan VLSM - Variable Length Subnet Mask):**
+
+- **Subnet Siswa:** Butuh 108 host. Kita cari $2^n - 2 \ge 108$. Didapat $n=7$ ($2^7 - 2 = 126$ host). Ini membutuhkan 7 bit untuk host, sehingga $32 - 7 = 25$ bit untuk network.  
+  Alokasi: 202.40.10.0/25 (Range: 202.40.10.1 - 202.40.10.126)
+- **Subnet Guru:** Butuh 55 host. Kita cari $2^n - 2 \ge 55$. Didapat $n=6$ ($2^6 - 2 = 62$ host). Ini butuh 6 bit host, atau /26.  
+  Alokasi: 202.40.10.128/26 (Range: 202.40.10.129 - 202.40.10.190)
+- **Subnet Teknisi:** Butuh 26 host. Kita cari $2^n - 2 \ge 26$. Didapat $n=5$ ($2^5 - 2 = 30$ host). Ini butuh 5 bit host, atau /27.  
+  Alokasi: 202.40.10.192/27 (Range: 202.40.10.193 - 202.40.10.222)
+
+## 2. Perancangan Sistem Jaringan
+
+Tahap ini adalah blueprint jaringan. Perancangan yang baik menggunakan pendekatan Top-Down (didorong oleh kebutuhan bisnis, bukan teknologi).
+
+### Rancangan Logis vs. Fisik
+
+- **Rancangan Fisik:** Tata letak fisik perangkat dan kabel. Di mana server diletakkan, di mana kabel UTP ditarik.
+- **Rancangan Logis:** Alur data, skema pengalamatan IP, segmentasi VLAN, dan bagaimana jaringan beroperasi.
+
+### Topologi Jaringan (Arsitektur Fisik)
+
+[PLACEHOLDER ILUSTRASI: Diagram jenis-jenis topologi jaringan (Bus, Star, Ring, Mesh)]
+
+- **Topologi Bus:** (Sudah usang) Semua perangkat terhubung ke satu kabel utama (backbone).
+- **Topologi Star (Bintang):** Paling umum digunakan di LAN modern. Semua perangkat terhubung ke satu titik pusat (konsentrator).  
+  Implementasi: Perangkat PC terhubung ke Switch atau Hub menggunakan kabel UTP.
+- **Topologi Ring:** Setiap perangkat terhubung ke dua perangkat tetangganya, membentuk cincin.
+- **Topologi Mesh:** Setiap perangkat terhubung ke sebanyak mungkin perangkat lain. Sangat handal (redundant) tetapi mahal dan rumit.
+- **Topologi Tree (Pohon):** Gabungan dari topologi Bus dan Star.
+
+### Media dan Perangkat Keras Jaringan
+
+#### Media Transmisi:
+
+- **Twisted Pair (UTP/STP):** Kabel tembaga standar (mis: Cat 5e, Cat 6) dengan konektor RJ-45.
+- **Fiber Optic (FO):** Menggunakan cahaya, kecepatan sangat tinggi, tahan interferensi, untuk jarak jauh (backbone).
+- **Nirkabel (Wireless):** Menggunakan gelombang radio (Wi-Fi) atau satelit (VSAT).
+
+#### Perangkat Keras:
+
+- **NIC (Network Interface Card):** Kartu/port di PC untuk koneksi ke jaringan.
+- **Hub:** Perangkat pusat (Layer 1), hanya meneruskan sinyal ke semua port (tidak cerdas).
+- **Switch:** Perangkat pusat (Layer 2), lebih cerdas dari Hub. Meneruskan data hanya ke port tujuan berdasarkan Alamat MAC.
+- **Router:** Perangkat (Layer 3) yang menghubungkan dua atau lebih jaringan yang berbeda (mis: LAN ke Internet). Berfungsi menentukan rute/jalur terbaik untuk paket data.
+- **Access Point (AP):** Perangkat untuk menghubungkan klien wireless (laptop, HP) ke jaringan kabel (LAN).
+
+## 3. Penerapan Sistem Jaringan
+
+Tahap ini adalah eksekusi dari perancangan (instalasi dan konfigurasi).
+
+- **Penerapan Fisik:** Instalasi kabel UTP (cabling), pemasangan perangkat (Router, Switch) di rak server, dan menghubungkan PC.
+
+### Penerapan Logis (Konfigurasi)
+
+#### Konfigurasi PC/Klien:
+
+Mengatur IP Address, Subnet Mask, dan Default Gateway (Alamat IP Router).
+
+#### Konfigurasi Switch:
+
+**Contoh Implementasi (VLAN):** Membuat VLAN (Virtual LAN) untuk memisahkan traffic secara logis. Misalnya, dalam satu switch fisik, VLAN 10 (untuk Divisi Keuangan) dan VLAN 20 (untuk Divisi Marketing) dibuat. Perangkat di VLAN 10 tidak dapat berkomunikasi langsung dengan VLAN 20, seolah-olah berada di switch yang berbeda, sehingga meningkatkan keamanan.
+
+#### Konfigurasi Router:
+
+- Mengatur IP Address di setiap interface (port) yang terhubung ke jaringan berbeda.
+- Mengatur Routing Protocol (mis: OSPF, EIGRP) untuk menentukan jalur.
+- Mengatur NAT (Network Address Translation) untuk menerjemahkan banyak IP Private (internal) ke satu IP Public (internet).
+
+### Pengujian Konektivitas
+
+- **ping:** Perintah dasar untuk menguji apakah perangkat tujuan merespons (mis: ping 192.168.1.1).
+- **traceroute (atau tracert):** Perintah untuk melacak rute (lompatan router) yang dilewati paket data untuk mencapai tujuan.
+
+## 4. Evaluasi Sistem Jaringan
+
+Tahap ini berfokus pada pemantauan (monitoring), analisis masalah (troubleshooting), dan optimalisasi jaringan yang sudah berjalan.
+
+### Manajemen Jaringan (FCAPS)
+
+Kerangka kerja manajemen jaringan dari ISO:
+
+- **F - Fault Management:** Mendeteksi dan memperbaiki kesalahan (mis: link down).
+- **C - Configuration Management:** Melacak dan mengelola konfigurasi perangkat.
+- **A - Accounting Management:** Melacak penggunaan sumber daya oleh pengguna.
+- **P - Performance Management:** Memantau kinerja jaringan.
+- **S - Security Management:** Mengelola akses dan melindungi dari ancaman.
+
+### Protokol Monitoring
+
+- **SNMP (Simple Network Management Protocol):** Protokol standar yang digunakan oleh tool monitoring untuk mengambil data (seperti bandwidth, CPU load) dari perangkat jaringan (Router, Switch).
+
+### Analisis Kinerja dan Masalah
+
+#### Indikator Kinerja:
+
+- **Throughput:** Kecepatan transfer data aktual (yang sebenarnya didapat).
+- **Latency (Delay):** Waktu tunda pengiriman paket (semakin kecil semakin baik).
+- **Jitter:** Variasi dari latency (penting untuk video call dan streaming).
+- **Packet Loss:** Persentase paket yang hilang di tengah jalan.
+
+#### Tools Monitoring:
+
+Wireshark (untuk sniffing atau menganalisis isi paket), MRTG/Cacti (untuk membuat grafik tren penggunaan bandwidth).
+
+### Optimalisasi Jaringan
+
+Tindakan perbaikan berdasarkan hasil evaluasi.
+
+**Contoh Implementasi:** Jika hasil monitoring menunjukkan latency tinggi karena congestion (kemacetan), solusinya adalah menerapkan QoS (Quality of Service) pada router untuk memprioritaskan traffic penting (mis: video conference) di atas traffic tidak penting (mis: download).
+
+---
+
+> Catatan: Ringkasan ini mencakup empat pilar manajemen jaringan komputer. Tambahkan diagram topologi, simulasi subnetting, atau praktik konfigurasi untuk pemahaman yang lebih mendalam.

@@ -1,0 +1,56 @@
+[
+    {
+        "id": "1",
+        "title": "Ekos Landing Page",
+        "description": "A modern, responsive landing page built with Next.js and Tailwind CSS, showcasing personal portfolio and blog.",
+        "technologies": [
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "MDX"
+        ],
+        "github": "https://github.com/ekosup/ekos-knowledge-repo",
+        "demo": "https://ekosupriyono.dev",
+        "featured": true
+    },
+    {
+        "id": "2",
+        "title": "Pranata Komputer Knowledge Base",
+        "description": "Comprehensive documentation and study materials for Pranata Komputer certification modules, covering IT enterprise concepts.",
+        "technologies": [
+            "MDX",
+            "Fumadocs",
+            "Next.js"
+        ],
+        "github": "https://github.com/ekosup/ekos-knowledge-repo",
+        "demo": "/blogs",
+        "featured": true
+    },
+    {
+        "id": "3",
+        "title": "Full Stack E-commerce Platform",
+        "description": "A complete e-commerce solution with user authentication, product management, shopping cart, and payment integration.",
+        "technologies": [
+            "React",
+            "Node.js",
+            "MongoDB",
+            "Stripe"
+        ],
+        "github": "https://github.com/example/ecommerce",
+        "demo": "https://example-ecommerce.com",
+        "featured": false
+    },
+    {
+        "id": "4",
+        "title": "Task Management App",
+        "description": "A collaborative task management application with real-time updates, team collaboration features, and progress tracking.",
+        "technologies": [
+            "Vue.js",
+            "Firebase",
+            "Tailwind CSS"
+        ],
+        "github": "https://github.com/example/taskmanager",
+        "demo": "https://example-taskmanager.com",
+        "featured": false
+    }
+]

@@ -1,0 +1,316 @@
+@import "tailwindcss";
+@import "fumadocs-ui/css/catppuccin.css";
+@import "fumadocs-ui/css/preset.css";
+@import "katex/dist/katex.min.css";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+ --color-background: var(--background);
+ --color-foreground: var(--foreground);
+ --font-sans: var(--font-geist-sans);
+ --font-mono: var(--font-geist-mono);
+ --color-sidebar-ring: var(--sidebar-ring);
+ --color-sidebar-border: var(--sidebar-border);
+ --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+ --color-sidebar-accent: var(--sidebar-accent);
+ --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+ --color-sidebar-primary: var(--sidebar-primary);
+ --color-sidebar-foreground: var(--sidebar-foreground);
+ --color-sidebar: var(--sidebar);
+ --color-chart-5: var(--chart-5);
+ --color-chart-4: var(--chart-4);
+ --color-chart-3: var(--chart-3);
+ --color-chart-2: var(--chart-2);
+ --color-chart-1: var(--chart-1);
+ --color-ring: var(--ring);
+ --color-input: var(--input);
+ --color-border: var(--border);
+ --color-destructive: var(--destructive);
+ --color-accent-foreground: var(--accent-foreground);
+ --color-accent: var(--accent);
+ --color-muted-foreground: var(--muted-foreground);
+ --color-muted: var(--muted);
+ --color-secondary-foreground: var(--secondary-foreground);
+ --color-secondary: var(--secondary);
+ --color-primary-foreground: var(--primary-foreground);
+ --color-primary: var(--primary);
+ --color-popover-foreground: var(--popover-foreground);
+ --color-popover: var(--popover);
+ --color-card-foreground: var(--card-foreground);
+ --color-card: var(--card);
+ --radius-sm: calc(var(--radius) - 4px);
+ --radius-md: calc(var(--radius) - 2px);
+ --radius-lg: var(--radius);
+ --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* Docs heading links styling */
+.docs-page h1,
+.docs-page h2,
+.docs-page h3,
+.docs-page h4,
+.docs-page h5,
+.docs-page h6 {
+ @apply font-bold;
+}
+
+/* Heading anchor links */
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+ @apply font-bold no-underline inline-flex items-center gap-2;
+}
+
+h1 a::before,
+h2 a::before,
+h3 a::before,
+h4 a::before,
+h5 a::before,
+h6 a::before {
+ content: "#";
+ @apply opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground;
+}
+
+h1:hover a::before,
+h2:hover a::before,
+h3:hover a::before,
+h4:hover a::before,
+h5:hover a::before,
+h6:hover a::before {
+ @apply opacity-100;
+}
+
+/* Strong tag styling inside docs */
+strong {
+ @apply font-bold dark:text-white;
+}
+
+/* Anchor in a list styling inside docs */
+.docs-page li a {
+ @apply dark:text-white transition-colors;
+}
+
+/* Code block text color inside docs */
+code {
+ @apply dark:text-white;
+}
+
+/* Base docs text color (inherits foreground which switches via CSS vars) */
+.docs-page,
+.nd-docs-layout {
+ @apply text-foreground;
+}
+
+/* Explicit elements inherit; no need to repeat color unless overridden elsewhere */
+.nd-docs-layout p,
+.nd-docs-layout li,
+.nd-docs-layout td,
+.nd-docs-layout a {
+ @apply text-foreground;
+}
+
+.docs-page a {
+ @apply underline underline-offset-4 decoration-transparent hover:decoration-current transition-colors;
+}
+
+.dark .docs-page a {
+ @apply text-white hover:text-white;
+}
+
+/* Prose wrapper inherits; only ensure dark anchors/strong if needed */
+.dark .prose {
+ @apply text-white;
+}
+
+/* Strong/Bold inside docs: avoid global override, rely on inheritance for color */
+.docs-page strong,
+.docs-page b {
+ @apply font-bold;
+}
+
+.dark .docs-page strong,
+.dark .docs-page b {
+ @apply font-bold;
+ /* color already white */
+}
+
+/* Remove global strong,b color rules to prevent duplication and unintended overrides */
+/* Print styles */
+@media print {
+ /* Hide app chrome and nav/toc */
+ header,
+ footer,
+ nav,
+ aside,
+ .print\:hidden,
+ .no-print {
+  display: none !important;
+ }
+
+ /* Expand content */
+ .docs-page,
+ .docs-layout,
+ main {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+ }
+
+ /* Make links show URLs optionally */
+ a[href]::after {
+  content: " (" attr(href) ")";
+  font-weight: normal;
+  font-size: 90%;
+  color: #666;
+ }
+}
+
+/* Utility to hide elements when printing */
+.no-print {
+}
+
+@media print {
+ .no-print {
+  display: none !important;
+ }
+}
+
+:root {
+ --radius: 0.625rem;
+ --background: oklch(1 0 0);
+ --foreground: oklch(0.129 0.042 264.695);
+ --card: oklch(1 0 0);
+ --card-foreground: oklch(0.129 0.042 264.695);
+ --popover: oklch(1 0 0);
+ --popover-foreground: oklch(0.129 0.042 264.695);
+ --primary: oklch(0.208 0.042 265.755);
+ --primary-foreground: oklch(0.984 0.003 247.858);
+ --secondary: oklch(0.968 0.007 247.896);
+ --secondary-foreground: oklch(0.208 0.042 265.755);
+ --muted: oklch(0.968 0.007 247.896);
+ --muted-foreground: oklch(0.554 0.046 257.417);
+ --accent: oklch(0.968 0.007 247.896);
+ --accent-foreground: oklch(0.208 0.042 265.755);
+ --destructive: oklch(0.577 0.245 27.325);
+ --border: oklch(0.929 0.013 255.508);
+
+ /* Arrange docs layout: content + right sidebar (TOC) */
+ .nd-docs-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+ }
+
+ .nd-docs-layout aside {
+  position: sticky;
+  top: 4rem;
+  align-self: start;
+  max-height: calc(100vh - 6rem);
+  overflow: auto;
+  padding-left: 1rem;
+  border-left: 1px solid var(--color-border);
+ }
+
+ /* Make table-of-contents links readable */
+ .nd-docs-layout aside a {
+  display: block;
+  padding: 0.25rem 0.25rem;
+  color: var(--color-muted-foreground);
+ }
+
+ .nd-docs-layout aside a:hover {
+  color: var(--color-primary-foreground);
+ }
+ --input: oklch(0.929 0.013 255.508);
+ --ring: oklch(0.704 0.04 256.788);
+ --chart-1: oklch(0.646 0.222 41.116);
+ --chart-2: oklch(0.6 0.118 184.704);
+ --chart-3: oklch(0.398 0.07 227.392);
+ --chart-4: oklch(0.828 0.189 84.429);
+ --chart-5: oklch(0.769 0.188 70.08);
+ --sidebar: oklch(0.984 0.003 247.858);
+ --sidebar-foreground: oklch(0.129 0.042 264.695);
+ --sidebar-primary: oklch(0.208 0.042 265.755);
+ --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+ --sidebar-accent: oklch(0.968 0.007 247.896);
+ --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+ --sidebar-border: oklch(0.929 0.013 255.508);
+ --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+ --background: oklch(0.129 0.042 264.695);
+ --foreground: oklch(0.984 0.003 247.858);
+ --card: oklch(0.208 0.042 265.755);
+ --card-foreground: oklch(0.984 0.003 247.858);
+ --popover: oklch(0.208 0.042 265.755);
+ --popover-foreground: oklch(0.984 0.003 247.858);
+ --primary: oklch(0.929 0.013 255.508);
+ --primary-foreground: oklch(0.208 0.042 265.755);
+ --secondary: oklch(0.279 0.041 260.031);
+ --secondary-foreground: oklch(0.984 0.003 247.858);
+ --muted: oklch(0.279 0.041 260.031);
+ --muted-foreground: oklch(0.704 0.04 256.788);
+ --accent: oklch(0.279 0.041 260.031);
+ --accent-foreground: oklch(0.984 0.003 247.858);
+ --destructive: oklch(0.704 0.191 22.216);
+ --border: oklch(1 0 0 / 10%);
+ --input: oklch(1 0 0 / 15%);
+ --ring: oklch(0.551 0.027 264.364);
+ --chart-1: oklch(0.488 0.243 264.376);
+ --chart-2: oklch(0.696 0.17 162.48);
+ --chart-3: oklch(0.769 0.188 70.08);
+ --chart-4: oklch(0.627 0.265 303.9);
+ --chart-5: oklch(0.645 0.246 16.439);
+ --sidebar: oklch(0.208 0.042 265.755);
+ --sidebar-foreground: oklch(0.984 0.003 247.858);
+ --sidebar-primary: oklch(0.488 0.243 264.376);
+ --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+ --sidebar-accent: oklch(0.279 0.041 260.031);
+ --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+ --sidebar-border: oklch(1 0 0 / 10%);
+ --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+ * {
+  @apply border-border outline-ring/50;
+ }
+ body {
+  @apply bg-background text-foreground;
+ }
+}
+
+/* Custom animations for hero bubbles */
+@keyframes blob {
+ 0% {
+  transform: translate(0px, 0px) scale(1);
+ }
+ 33% {
+  transform: translate(30px, -50px) scale(1.1);
+ }
+ 66% {
+  transform: translate(-20px, 20px) scale(0.9);
+ }
+ 100% {
+  transform: translate(0px, 0px) scale(1);
+ }
+}
+
+.animate-blob {
+ animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+ animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+ animation-delay: 4s;
+}

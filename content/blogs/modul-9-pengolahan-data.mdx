@@ -1,0 +1,97 @@
+---
+title: "M9: Pengolahan Data"
+description: "Ringkasan 6 bab utama Modul 9 yang memetakan siklus hidup kegiatan pengolahan data, dari perencanaan hingga evaluasi."
+date: "2025-11-15"
+author: "Eko Supriyono"
+tags:
+  - Pengolahan Data
+  - Data Processing
+  - ETL
+  - Data Wrangling
+  - Data Cleaning
+  - Monitoring
+slug: "modul-9-pengolahan-data"
+draft: false
+readingTime: "9 min"
+---
+
+# Ringkasan Modul 9: Pengolahan Data
+
+> Ringkasan ini disusun berdasarkan 6 materi pokok dari Modul 9 (Bab II - Bab VII) untuk memetakan siklus hidup kegiatan pengolahan data, dari perencanaan hingga evaluasi.
+
+## Bab II: Studi Kelayakan Pengolahan Data
+
+- **Definisi:** Studi kelayakan adalah penelitian untuk menentukan apakah suatu rencana kegiatan pengolahan data layak diteruskan atau dihentikan. Tujuannya adalah untuk menghindari investasi (waktu, tenaga, biaya) yang besar pada kegiatan yang tidak menguntungkan.
+- **Metode Pengumpulan Data:**
+  - **Wawancara:** Mengumpulkan informasi kualitatif (opini, kebijakan).
+  - **Kuesioner:** Mengumpulkan data terukur dari sejumlah besar orang.
+  - **Review Catatan:** Menelaah dokumen formal (SOP, peraturan, pedoman).
+  - **Observasi:** Mengamati langsung bagaimana proses berjalan saat ini.
+- **Aspek Penilaian (TELOS):**
+  - **T - Technical (Teknis):** Apakah teknologi (hardware/software) tersedia dan memadai? Apakah ada ahli yang mampu mengoperasikannya?
+  - **E - Economic (Ekonomi):** Apakah manfaat yang didapat lebih besar dari biaya yang dikeluarkan?
+  - **L - Legal (Hukum):** Apakah kegiatan ini sesuai dengan hukum (mis: lisensi software, UU ITE)?
+  - **O - Operational (Operasional):** Apakah kegiatan ini akan berjalan baik di organisasi? Apakah personil mampu menjalankannya?
+  - **S - Schedule (Jadwal):** Apakah kegiatan dapat diselesaikan dalam batas waktu yang ditetapkan?
+
+## Bab III: Penyusunan Prosedur Pengolahan Data (SOP)
+
+- **Definisi:** SOP (Standard Operating Procedure) adalah "serangkaian instruksi tertulis yang dibakukan" yang menjelaskan bagaimana, kapan, di mana, dan oleh siapa suatu proses pengolahan data dilakukan.
+- **Manfaat:** Menjamin konsistensi, mengurangi kesalahan, meningkatkan efisiensi, dan menciptakan standar kinerja.
+- **Format SOP:**
+  - **Langkah Sederhana:** Untuk prosedur pendek (kurang dari 10 langkah) dan tidak ada keputusan.
+  - **Hirarki:** Untuk prosedur panjang yang memiliki sub-langkah.
+  - **Diagram Alir (Flowchart):** Format terbaik untuk proses yang melibatkan banyak pengambilan keputusan (Ya/Tidak, Lengkap/Tidak).
+- **Unsur Dokumen SOP:** Terdiri dari Unsur Identitas (Judul, No. SOP, Tgl. Pengesahan, Kualifikasi Pelaksana, Peralatan) dan Unsur Flowchart (Uraian kegiatan, Pelaksana, dan Mutu Baku/Standar Kualitas).
+
+## Bab IV: Penyusunan Petunjuk Teknis (Juknis)
+
+- **Definisi:** Juknis adalah dokumen yang memberikan petunjuk rinci untuk melaksanakan suatu kegiatan yang ada di dalam SOP.
+- **Hubungan SOP vs. Juknis:** Jika SOP adalah alur proses, Juknis adalah panduan implementasi dari alur tersebut.
+- **Cakupan Juknis Pengolahan Data:**
+  - **Pra-Pengolahan:** (mis: cara batching, editing-coding, guillotine).
+  - **Proses Pengolahan:** (mis: cara scanning, correction, validasi).
+  - **Pasca-Pengolahan:** (mis: cara backup data, upload data).
+
+## Bab V: Data Crawling, Feeding, dan Loading (Akuisisi Data)
+
+Bab ini mencakup teknik pengumpulan data sekunder modern dari sumber tidak terstruktur (Big Data/Web).
+
+- **Data Crawling (Web Crawling):**
+  - **Definisi:** Proses "menjelajahi" web secara otomatis menggunakan script atau bot (disebut Crawler) untuk mengunduh halaman web dan mengekstraksi informasi di dalamnya.
+  - **Proses:** Dimulai dari satu Seed URL, crawler akan mengekstraksi semua link di halaman itu, lalu mengunjungi link tersebut satu per satu, dan seterusnya.
+- **Data Feeding:**
+  - **Definisi:** Mekanisme untuk menerima data terkini (update) dari sumber data secara otomatis (biasanya real-time) tanpa harus menjelajah.
+  - **Contoh Utama:** RSS (Really Simple Syndication). Pengguna "berlangganan" (subscribe) ke sebuah feed, dan feed reader akan otomatis menerima konten baru saat dipublikasikan oleh sumber.
+- **Data Loading:**
+  - **Definisi:** Ini adalah bagian "L" (Load) dari proses ETL (Extract, Transform, Load). Ini adalah proses memuat data (yang sudah diekstraksi dan ditransformasi) ke dalam sistem penyimpanan akhir, seperti Data Warehouse (DWH) atau Data Mart.
+  - **Jenis Pemuatan:**
+    - _Full Load (Initial Load):_ Memuat seluruh data (biasanya dilakukan pertama kali).
+    - _Incremental Load:_ Hanya memuat data yang baru atau berubah sejak pemuatan terakhir (dijadwalkan harian, mingguan, dll).
+    - _Full Refresh:_ Menghapus semua data lama di DWH dan menggantinya dengan data baru.
+
+## Bab VI: Manipulasi Data (Data Wrangling)
+
+- **Definisi:** Proses mengubah data (melalui rearrangement dan restructuring) agar lebih terorganisir, mudah dibaca, dan siap untuk dianalisis.
+- **Tahapan Manipulasi:**
+  - **Rearrangement & Restructuring (Penataan Ulang):**
+    - _Sorting:_ Mengurutkan data (Ascending/Descending).
+    - _Filtering:_ Memilih baris data berdasarkan kriteria tertentu.
+    - _Mengubah Tipe Data:_ (mis: dari String ke Integer).
+    - _Pivot & Unpivot:_ Mengubah data dari format baris ke kolom (Pivot) atau sebaliknya (Unpivot).
+    - _Crosstab (Tabulasi Silang):_ Meringkas informasi dari dua variabel atau lebih ke dalam bentuk tabel.
+  - **Data Cleaning (Pembersihan Data):**
+    - _Remove Duplicates:_ Menghapus baris data yang ganda/identik.
+    - _Missing Values:_ Menangani data yang hilang (mis: dibuang, diisi dengan mean/median, atau diimputasi).
+    - _Outliers (Pencilan):_ Menangani data dengan nilai ekstrem yang jauh berbeda dari data lainnya.
+
+## Bab VII: Pemantauan (Monitoring) dan Evaluasi
+
+- **Definisi Monitoring:** Kegiatan mengamati perkembangan pelaksanaan pengolahan data saat sedang berjalan (on-going). Tujuannya adalah mengidentifikasi masalah sedini mungkin.
+- **Definisi Evaluasi:** Rangkaian kegiatan membandingkan realisasi (masukan, keluaran, hasil) terhadap rencana dan standar yang telah ditetapkan. Evaluasi dilakukan setelah kegiatan selesai untuk menilai apakah sasaran tercapai.
+- **Teknik Pengumpulan Data (Monev):** Observasi, Kunjara (Kunjungan Lapangan), Wawancara, Kuesioner, Review Dokumen, FGD, dan E-Monev (Monitoring melalui media elektronik/web).
+- **Laporan Monev:** Dokumen yang berisi hasil temuan, analisis permasalahan, dan rekomendasi/solusi perbaikan.
+
+---
+
+> Catatan: Ringkasan ini mencakup siklus hidup pengolahan data secara komprehensif. Tambahkan contoh flowchart SOP, simulasi ETL, atau analisis data wrangling untuk pemahaman yang lebih mendalam.

@@ -1,0 +1,100 @@
+---
+title: "M4: Pengelolaan Data"
+description: "Ringkasan 10 bab utama Modul 4 yang memetakan konsep-konsep kunci dalam siklus hidup pengelolaan data."
+date: "2025-11-15"
+author: "Eko Supriyono"
+tags:
+  - Pengelolaan Data
+  - Data Management
+  - Database
+  - Data Security
+  - Business Intelligence
+slug: "modul-4-pengelolaan-data"
+draft: false
+readingTime: "10 min"
+---
+
+# Ringkasan Modul 4: Pengelolaan Data
+
+> Ringkasan ini disusun berdasarkan 10 materi pokok dari Modul 4 (Bab II - Bab XI) untuk memetakan konsep-konsep kunci dalam siklus hidup pengelolaan data.
+
+## Bab II: Strategi Pengelolaan Data
+
+- **Konsep Inti:** Data adalah aset berharga. Manajemen data adalah praktik untuk menangani data agar dapat digunakan untuk pengambilan keputusan bisnis yang efektif.
+- **Tujuan:** Peningkatan produktivitas, penghematan biaya, respons cepat terhadap perubahan, dan akurasi keputusan.
+- **Strategi:** Rencana pemanfaatan data yang harus selaras dengan strategi bisnis.
+- **Komponen (DAMA):** Meliputi Arsitektur Data, Pemodelan Data, Administrasi Database, Integrasi, Analisis & BI, Kualitas Data, Keamanan, dan Tata Kelola Data.
+- **Output:** Kerangka kerja, Peta Jalan (Roadmap) Implementasi.
+
+## Bab III: Kebijakan Data
+
+- **Konsep:** Mendefinisikan aturan main pengelolaan data.
+- **Kebijakan (Policy):** Aturan dan prinsip tingkat tinggi (aturan akses, keamanan, kualitas).
+- **Standar (Standard):** Aturan rinci tentang bagaimana kebijakan diterapkan (mis: standar format data, standar penamaan).
+- **Metadata:** Bagian penting dari standar; merupakan "data tentang data" yang memudahkan pencarian, pemahaman, dan penggunaan data.
+- **Prosedur (Procedure):** Langkah-langkah teknis (SOP) untuk melaksanakan standar.
+
+## Bab IV: Pengelolaan Kebutuhan Informasi
+
+- **Siklus Hidup Data:** Data memiliki siklus hidup (Plan, Design, Create/Obtain, Store, Use, Enhance, Dispose/Destroy).
+- **Analisis Kebutuhan:** Proses sistematis untuk mengidentifikasi gap antara informasi yang dibutuhkan dan yang tersedia.
+- **Validasi:** Memastikan kebutuhan informasi yang teridentifikasi sudah tepat dan sesuai dengan tujuan, sebelum data dikumpulkan.
+- **Klasifikasi Aset Informasi:** Mengelompokkan data berdasarkan tingkat kerahasiaan/sensitivitas (mis: Publik, Terbatas, Rahasia, Sangat Rahasia).
+
+## Bab V: Arsitektur Data dan Integrasi Data
+
+- **Arsitektur Data:** Blueprint yang menjembatani strategi bisnis dengan teknologi. Menggambarkan aliran data (pengumpulan, penyimpanan, integrasi, distribusi).
+- **Arsitektur Integrasi Data:** Proses mengkonsolidasikan data dari berbagai sumber.
+- **ETL (Extract, Transform, Load):** Teknologi kunci yang digunakan untuk mengambil data dari format beragam, mengubahnya ke format standar, dan memuatnya ke repositori (mis: Data Warehouse).
+- **Arsitektur Teknologi Data:** Rancangan hardware dan software (server, jaringan, RDBMS) yang spesifik untuk mendukung arsitektur data.
+
+## Bab VI: Implementasi Pengelolaan Data
+
+- **Rencana Layanan:** Menyusun Katalog Layanan (Service Catalog) untuk layanan data yang disediakan.
+- **Solusi Permasalahan:** Mendokumentasikan solusi atas masalah data (dalam Knowledge Management) untuk mengurangi dampak gangguan.
+- **Supervisi:** Memeriksa kesesuaian antara prosedur (SOP) pengelolaan data dengan pelaksanaannya di lapangan.
+- **Sosialisasi & Evaluasi:** Menyebarkan pengetahuan tentang pengelolaan data dan mengevaluasi kinerjanya.
+
+## Bab VII: Implementasi Data Model, Data Mining, dan BI
+
+- **Data Model:** Proses mendokumentasikan relasi antar data.
+- **Level Model:** 1. Conceptual (Bisnis, high-level), 2. Logical (Detil atribut, ternormalisasi), 3. Physical (Teknis, siap implementasi di DBMS).
+- **Data Mining:** Proses menemukan pola tersembunyi menggunakan ML/AI/Statistik. Fungsinya: Characterization, Association, Classification, Clustering, Outlier analysis.
+- **Business Intelligence (BI):** Pemanfaatan teknologi (Query, Data Mining, Visualisasi) untuk menghasilkan insight dari data guna pengambilan keputusan.
+
+## Bab VIII: Teknologi Data
+
+- **Definisi:** Perangkat keras dan lunak spesifik yang digunakan untuk pengelolaan data (mis: RDBMS, ETL tool, BI tool, Data Warehouse).
+- **Proses:** Meliputi penyusunan kebutuhan teknologi, deteksi dan perbaikan masalah, evaluasi teknologi (fungsi, performa, keamanan, availability), dan pengadministrasian (pencatatan/dokumentasi).
+
+## Bab IX: Keamanan Data
+
+- **Prinsip Inti (CIA Triad):**
+  - _Confidentiality (Kerahasiaan):_ Data hanya diakses oleh pihak berwenang.
+  - _Integrity (Keutuhan):_ Data dipastikan utuh, akurat, dan tidak diubah secara ilegal.
+  - _Availability (Ketersediaan):_ Data tersedia saat dibutuhkan.
+- **Penerapan:** Melalui Kebijakan, Standar (mis: ISO 27001), dan Prosedur.
+- **Pengelolaan Akses Data:** Kontrol teknis untuk memastikan keamanan, sering menggunakan RBAC (Role-Based Access Control) untuk membatasi akses sesuai peran pengguna.
+
+## Bab X: Implementasi Database
+
+- **File-Based vs. Database:** Sistem berbasis file (manual) menyebabkan duplikasi dan isolasi data. DBMS (Database Management System) mengatasi ini dengan mengelola data secara terpusat.
+- **Alur Pengembangan:** Desain (Conceptual, Logical, Physical) → Pengembangan (Build) → Implementasi (Deploy) → Perawatan (Maintenance).
+- **Bahasa DBMS:**
+  - _DDL (Data Definition Language):_ Untuk mendefinisisi struktur (mis: CREATE TABLE).
+  - _DML (Data Manipulation Language):_ Untuk memanipulasi data (mis: SELECT, INSERT, UPDATE).
+- **Taksonomi & Ontologi:** Digunakan untuk mengelola data tidak terstruktur. Taksonomi mengklasifikasikan (struktur pohon), Ontologi mendefinisikan hubungan antar konsep.
+
+## Bab XI: Pemeliharaan Database
+
+- **Tujuan:** Mengatasi kegagalan (transaksi, sistem, media/disk) dan menjaga performa.
+- **Backup:** Proses menyalin database dan log file secara periodik ke media penyimpanan offline.
+- **Recovery (Pemulihan):** Proses mengembalikan database ke kondisi konsisten setelah terjadi kegagalan.
+- **Fasilitas DBMS Pendukung:**
+  - _Log File (Jurnal):_ Catatan semua perubahan (nilai sebelum dan sesudah) pada database.
+  - _Checkpoint:_ Titik sinkronisasi antara log file dan database untuk mempercepat proses recovery.
+- **Proses Lain:** Archiving (memindahkan data lama), Purging (menghapus data lama), Replikasi (menyalin data ke server lain untuk high availability).
+
+---
+
+> Catatan: Ringkasan ini mencakup siklus hidup pengelolaan data secara komprehensif. Tambahkan diagram, contoh implementasi, atau studi kasus untuk pemahaman yang lebih mendalam.

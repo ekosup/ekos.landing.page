@@ -1,0 +1,92 @@
+---
+title: "M6: Manajemen Infrastruktur TI"
+description: "Ringkasan 5 bab utama Modul 6 yang memetakan siklus hidup manajemen infrastruktur TI."
+date: "2025-11-15"
+author: "Eko Supriyono"
+tags:
+  - Manajemen Infrastruktur TI
+  - IT Infrastructure Management
+  - Virtualization
+  - Cloud Computing
+  - ITIL
+slug: "modul-6-manajemen-infrastruktur-ti"
+draft: false
+readingTime: "10 min"
+---
+
+# Ringkasan Modul 6: Manajemen Infrastruktur TI
+
+> Ringkasan ini disusun berdasarkan 5 materi pokok dari Modul 6 (Bab II - Bab VI) untuk memetakan siklus hidup manajemen infrastruktur TI.
+
+## Bab II: Konsep Manajemen Infrastruktur TI
+
+- **Definisi:** Infrastruktur TI adalah kombinasi perangkat keras (hardware), perangkat lunak (software), jaringan, dan fasilitas yang menjadi landasan (platform) untuk mengembangkan, menguji, mengirimkan, memantau, dan mengendalikan layanan TI.
+- **Ekosistem Infrastruktur TI:** Terdiri dari 7 komponen utama:
+  - Platform Perangkat Keras Komputer (PC, Server).
+  - Platform Sistem Operasi (Windows, Linux, UNIX).
+  - Aplikasi Perangkat Lunak Enterprise (SAP, Oracle).
+  - Manajemen & Penyimpanan Data (DBMS, Storage).
+  - Platform Jaringan/Telekomunikasi (Switch, Router, Cisco).
+  - Platform Internet (Web Server Apache, IIS).
+  - Layanan Konsultasi dan Integrasi Sistem.
+- **Tren Teknologi Kunci:**
+  - **Virtualisasi (Virtualization):** Teknologi inti yang mengabstraksi sumber daya. Sebuah Hypervisor (perangkat lunak virtualisasi) memungkinkan satu perangkat keras fisik menjalankan beberapa sistem operasi (Guest OS) secara bersamaan, seolah-olah berjalan di perangkat keras terpisah.
+  - **Cloud Computing (Komputasi Awan):** Model layanan on-demand melalui internet.
+  - **Karakteristik:** On-demand self-service, Broad network access, Resource pooling, Rapid elasticity, Measured service.
+  - **Model Layanan:**
+    - _IaaS (Infrastructure as a Service):_ Menyediakan infrastruktur dasar (server virtual, storage). Pengguna mengelola OS dan aplikasi.
+    - _PaaS (Platform as a Service):_ Menyediakan platform (database, runtime). Pengguna mengelola aplikasi.
+    - _SaaS (Software as a Service):_ Menyediakan aplikasi jadi (mis: Gmail, Office 365). Pengguna hanya menggunakan.
+- **Manajemen Aset TI:** Mengelola siklus hidup aset infrastruktur: Procurement (Pengadaan) → Deploy (Pemasangan) → Use (Penggunaan) → Upgrade (Peningkatan) → Decommission (Penonaktifan) → Salvage (Penyelamatan/Pelepasan).
+
+## Bab III: Perencanaan dan Pengadaan Infrastruktur TI
+
+- **Perencanaan:** Proses menentukan kebutuhan infrastruktur berdasarkan 5 pertanyaan inti:
+  - Bagaimana kondisi saat ini (As-Is)?
+  - Layanan apa yang dibutuhkan?
+  - Infrastruktur apa yang kritis?
+  - Berapa biaya minimum pengelolaannya?
+  - Bagaimana ketersediaan anggarannya?
+- **Hasil Perencanaan:** Output utamanya adalah Analisis Kesenjangan (Gap Analysis) yang membandingkan infrastruktur Existing (saat ini) dengan Future (target), dan menentukan tindakan: Replace (Ganti), Retain (Pertahankan), Add (Tambah), atau Remove (Hapus).
+- **Pengadaan:** Proses mendapatkan barang/jasa infrastruktur TI.
+- **Dokumen Pengadaan Kunci:**
+  - _KAK (Kerangka Acuan Kerja):_ Dokumen perencanaan yang menjelaskan latar belakang, maksud & tujuan, ruang lingkup, keluaran, cara pelaksanaan, jadwal, dan perkiraan biaya (RAB). Prinsipnya harus Jelas, Ringkas, Sistematis, dan Terukur.
+  - _HPS (Harga Perkiraan Sendiri):_ Perhitungan biaya barang/jasa sebagai acuan untuk menilai kewajaran penawaran dari penyedia.
+  - _Kontrak:_ Dokumen legal yang mengikat antara organisasi dan penyedia.
+- **Proses Pengadaan:** Dimulai dari penetapan kebutuhan, pembentukan tim, penyusunan KAK & HPS, pengumuman, evaluasi proposal teknis, hingga penyerahan infrastruktur TI.
+
+## Bab IV: Operasional Infrastruktur TI
+
+- **Definisi:** Tahap implementasi (pemasangan dan konfigurasi) infrastruktur yang telah direncanakan dan diadakan.
+- **Rencana Pengoperasian:** Didokumentasikan dalam bentuk Kebijakan dan SOP (Standard Operating Procedure), misal: SOP Peminjaman, SOP Perawatan.
+- **Proses Operasional:**
+  - _Pemasangan (Instalasi):_ Memasang komponen hardware (mis: server ke rak) dan software (mis: instalasi sistem operasi).
+  - _Konfigurasi:_ Melakukan pengaturan pada hardware dan software agar dapat berfungsi sesuai kebutuhan (mis: konfigurasi BIOS, IP address).
+  - _Pemanfaatan:_ Menjalankan prosedur penggunaan infrastruktur (mis: Standard Operating Environment untuk software).
+- **Pengaturan Akses Keamanan:** Langkah krusial untuk melindungi infrastruktur, seperti menerapkan password yang kuat, membatasi hak akses pengguna, dan memasang firewall.
+
+## Bab V: Pemeliharaan Infrastruktur TI
+
+- **Tujuan:** Memperpanjang usia aset, menjamin kesiapan operasional (ketersediaan), dan menjamin keselamatan pengguna.
+- **Rencana Pemeliharaan:** Harus disiapkan melalui SOP, menunjuk personel yang kompeten, dan membuat dokumentasi/catatan (Work Record).
+- **Jenis Kegiatan Pemeliharaan:**
+  - _Preventive (Pencegahan):_ Pemeriksaan berkala untuk mengantisipasi masalah (mis: membersihkan debu server, mengecek UPS).
+  - _Adaptive (Penyesuaian):_ Perubahan konfigurasi untuk menyesuaikan dengan kebutuhan baru.
+  - _Perfective (Penyempurnaan):_ Melakukan upgrade untuk optimalisasi kinerja.
+  - _Corrective (Perbaikan):_ (Dibahas di Bab 5.3) Melakukan deteksi dan perbaikan terhadap permasalahan yang sudah terjadi.
+- **Deteksi dan Perbaikan:** Berfokus pada Disaster Recovery Management (Manajemen Pemulihan Bencana) dengan 4 pilar: Prevention, Preparedness, Response, dan Recovery.
+
+## Bab VI: Monitoring Kinerja Infrastruktur TI
+
+- **Definisi:** Proses pengamatan (monitoring) dan evaluasi terhadap seluruh kegiatan operasional infrastruktur untuk memastikan berjalan sesuai rencana dan SLA.
+- **Matriks Kinerja (KPI):** Parameter teknis yang diukur untuk monitoring:
+  - _Kapasitas:_ Penggunaan CPU (%), Penggunaan Memori (%).
+  - _Ketersediaan:_ Uptime (%) dan Downtime (jam).
+  - _Performa Jaringan:_ Bandwidth (bps), Response Time/Latency (detik), dan Packet Loss (%).
+- **Analisis Permasalahan:** Menganalisis data monitoring untuk menemukan masalah seperti contention (antrian), ketimpangan beban (load balancing), atau desain aplikasi yang tidak efisien.
+- **Optimalisasi Kinerja:** Tindakan perbaikan berdasarkan hasil analisis (mis: tuning sistem, load balancing).
+- **Framework Acuan:** ITIL (IT Infrastructure Library) digunakan sebagai best practice untuk mengelola infrastruktur. Proses Capacity Management (Manajemen Kapasitas) dalam ITIL sangat penting untuk menyeimbangkan antara biaya, kapasitas, dan permintaan layanan.
+
+---
+
+> Catatan: Ringkasan ini mencakup siklus hidup manajemen infrastruktur TI secara komprehensif. Tambahkan diagram infrastruktur, studi kasus implementasi cloud, atau analisis KPI untuk pemahaman yang lebih mendalam.

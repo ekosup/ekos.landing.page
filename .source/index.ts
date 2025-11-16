@@ -1,0 +1,18 @@
+// @ts-nocheck -- skip type checking
+import * as d_docs_13 from "../content/blogs/projects.mdx?collection=docs"
+import * as d_docs_12 from "../content/blogs/modul-9-pengolahan-data.mdx?collection=docs"
+import * as d_docs_11 from "../content/blogs/modul-8-sistem-informasi.mdx?collection=docs"
+import * as d_docs_10 from "../content/blogs/modul-7-audit-ti.mdx?collection=docs"
+import * as d_docs_9 from "../content/blogs/modul-6-manajemen-infrastruktur-ti.mdx?collection=docs"
+import * as d_docs_8 from "../content/blogs/modul-5-sistem-jaringan-komputer.mdx?collection=docs"
+import * as d_docs_7 from "../content/blogs/modul-4-pengelolaan-data.mdx?collection=docs"
+import * as d_docs_6 from "../content/blogs/modul-3-manajemen-risiko-ti.mdx?collection=docs"
+import * as d_docs_5 from "../content/blogs/modul-2-manajemen-layanan-ti.mdx?collection=docs"
+import * as d_docs_4 from "../content/blogs/modul-12-sistem-penilaian-dan-administrasi-pranata-komputer.mdx?collection=docs"
+import * as d_docs_3 from "../content/blogs/modul-11-pembuatan-dokumentasi-dan-laporan.mdx?collection=docs"
+import * as d_docs_2 from "../content/blogs/modul-10-area-ti-spesial.mdx?collection=docs"
+import * as d_docs_1 from "../content/blogs/modul-1-it-enterprise.mdx?collection=docs"
+import * as d_docs_0 from "../content/blogs/hello-world.mdx?collection=docs"
+import { _runtime } from "fumadocs-mdx/runtime/next"
+import * as _source from "../source.config"
+export const docs = _runtime.docs<typeof _source.docs>([{ info: {"path":"hello-world.mdx","fullPath":"content/blogs/hello-world.mdx"}, data: d_docs_0 }, { info: {"path":"modul-1-it-enterprise.mdx","fullPath":"content/blogs/modul-1-it-enterprise.mdx"}, data: d_docs_1 }, { info: {"path":"modul-10-area-ti-spesial.mdx","fullPath":"content/blogs/modul-10-area-ti-spesial.mdx"}, data: d_docs_2 }, { info: {"path":"modul-11-pembuatan-dokumentasi-dan-laporan.mdx","fullPath":"content/blogs/modul-11-pembuatan-dokumentasi-dan-laporan.mdx"}, data: d_docs_3 }, { info: {"path":"modul-12-sistem-penilaian-dan-administrasi-pranata-komputer.mdx","fullPath":"content/blogs/modul-12-sistem-penilaian-dan-administrasi-pranata-komputer.mdx"}, data: d_docs_4 }, { info: {"path":"modul-2-manajemen-layanan-ti.mdx","fullPath":"content/blogs/modul-2-manajemen-layanan-ti.mdx"}, data: d_docs_5 }, { info: {"path":"modul-3-manajemen-risiko-ti.mdx","fullPath":"content/blogs/modul-3-manajemen-risiko-ti.mdx"}, data: d_docs_6 }, { info: {"path":"modul-4-pengelolaan-data.mdx","fullPath":"content/blogs/modul-4-pengelolaan-data.mdx"}, data: d_docs_7 }, { info: {"path":"modul-5-sistem-jaringan-komputer.mdx","fullPath":"content/blogs/modul-5-sistem-jaringan-komputer.mdx"}, data: d_docs_8 }, { info: {"path":"modul-6-manajemen-infrastruktur-ti.mdx","fullPath":"content/blogs/modul-6-manajemen-infrastruktur-ti.mdx"}, data: d_docs_9 }, { info: {"path":"modul-7-audit-ti.mdx","fullPath":"content/blogs/modul-7-audit-ti.mdx"}, data: d_docs_10 }, { info: {"path":"modul-8-sistem-informasi.mdx","fullPath":"content/blogs/modul-8-sistem-informasi.mdx"}, data: d_docs_11 }, { info: {"path":"modul-9-pengolahan-data.mdx","fullPath":"content/blogs/modul-9-pengolahan-data.mdx"}, data: d_docs_12 }, { info: {"path":"projects.mdx","fullPath":"content/blogs/projects.mdx"}, data: d_docs_13 }], [])

@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  ekos-knowledge-repo:
+    image: ekosupriyono/ekos-knowledge-repo:latest
+    container_name: ekos-knowledge-repo
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - sentry-self-hosted_default
+    restart: unless-stopped
+
+networks:
+  sentry-self-hosted_default:
+    external: true
