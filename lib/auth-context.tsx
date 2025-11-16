@@ -1,91 +1,113 @@
-'use client';
+"use client";
 
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { User, authApi, RegisterData, LoginData } from './auth-api';
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { User, authApi, RegisterData, LoginData } from "./auth-api";
 
 interface AuthContextType {
-  user: User | null;
-  isLoading: boolean;
-  login: (data: LoginData) => Promise<void>;
-  register: (data: RegisterData) => Promise<void>;
-  logout: () => Promise<void>;
-  checkAuth: () => Promise<void>;
+ user: User | null;
+ isLoading: boolean;
+ login: (data: LoginData) => Promise<void>;
+ register: (data: RegisterData) => Promise<void>;
+ logout: () => Promise<void>;
+ checkAuth: () => Promise<void>;
+ hasRole: (role: string) => boolean;
+ isAdmin: () => boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
+ const context = useContext(AuthContext);
+ if (context === undefined) {
+  throw new Error("useAuth must be used within an AuthProvider");
+ }
+ return context;
 };
 
 interface AuthProviderProps {
-  children: React.ReactNode;
+ children: React.ReactNode;
 }
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+ const queryClient = useQueryClient();
+ const [hasToken, setHasToken] = useState(false);
 
-  const checkAuth = async () => {
-    try {
-      const userData = await authApi.getMe();
-      setUser(userData);
-    } catch (error) {
-      setUser(null);
-      localStorage.removeItem('auth_token');
-    } finally {
-      setIsLoading(false);
-    }
-  };
+ useEffect(() => {
+  setHasToken(!!localStorage.getItem("auth_token"));
+ }, []);
 
-  const login = async (data: LoginData) => {
-    try {
-      const response = await authApi.login(data);
-      const token = response.session_token || response.token;
-      if (token) {
-        localStorage.setItem('auth_token', token);
-        await checkAuth();
-      }
-    } catch (error) {
-      throw error;
-    }
-  };
+ const { data: user, isLoading } = useQuery({
+  queryKey: ["user"],
+  queryFn: () => authApi.getMe(),
+  retry: 1,
+  staleTime: 5 * 60 * 1000, // 5 minutes
+  enabled: hasToken,
+ });
+ const loginMutation = useMutation({
+  mutationFn: authApi.login,
+  onSuccess: (response) => {
+   const token = response.session_token || response.token;
+   if (token) {
+    localStorage.setItem("auth_token", token);
+    setHasToken(true);
+    queryClient.invalidateQueries({ queryKey: ["user"] }); // Refetch user data
+   }
+  },
+ });
+ const registerMutation = useMutation({
+  mutationFn: authApi.register,
+ });
 
-  const register = async (data: RegisterData) => {
-    try {
-      await authApi.register(data);
-    } catch (error) {
-      throw error;
-    }
-  };
+ const logoutMutation = useMutation({
+  mutationFn: authApi.logout,
+  onSuccess: () => {
+   localStorage.removeItem("auth_token");
+   setHasToken(false);
+   queryClient.setQueryData(["user"], null); // Clear user data
+  },
+ });
+ const login = async (data: LoginData) => {
+  await loginMutation.mutateAsync(data);
+ };
 
-  const logout = async () => {
-    try {
-      await authApi.logout();
-    } catch (error) {
-      // Even if logout fails, clear local state
-    } finally {
-      setUser(null);
-      localStorage.removeItem('auth_token');
-    }
-  };
+ const register = async (data: RegisterData) => {
+  await registerMutation.mutateAsync(data);
+ };
 
-  useEffect(() => {
-    checkAuth();
-  }, []);
+ const logout = async () => {
+  try {
+   await logoutMutation.mutateAsync();
+  } catch (error) {
+   // Even if logout fails, clear local state
+   localStorage.removeItem("auth_token");
+   setHasToken(false);
+   queryClient.setQueryData(["user"], null);
+  }
+ };
 
-  const value: AuthContextType = {
-    user,
-    isLoading,
-    login,
-    register,
-    logout,
-    checkAuth,
-  };
+ const checkAuth = async () => {
+  queryClient.invalidateQueries({ queryKey: ["user"] });
+ };
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+ const hasRole = (role: string) => {
+  return user?.roles?.includes(role) ?? false;
+ };
+
+ const isAdmin = () => {
+  return hasRole("admin") || hasRole("admin_quiz");
+ };
+
+ const value: AuthContextType = {
+  user: user || null,
+  isLoading,
+  login,
+  register,
+  logout,
+  checkAuth,
+  hasRole,
+  isAdmin,
+ };
+
+ return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

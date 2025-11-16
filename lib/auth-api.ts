@@ -1,22 +1,8 @@
-import axios from 'axios';
+import { ApiClient } from './api-client';
 
 const API_BASE_URL = 'https://auth-prod.ekos.my.id/api/v1';
 
-const api = axios.create({
-  baseURL: API_BASE_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
-
-// Add request interceptor to include auth token
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('auth_token');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
+const api = ApiClient.getInstance().getAuthApi();
 
 export interface RegisterData {
   email: string;
@@ -31,6 +17,7 @@ export interface LoginData {
 export interface User {
   id: string;
   email: string;
+  roles: string[];
 }
 
 export interface AuthResponse {
