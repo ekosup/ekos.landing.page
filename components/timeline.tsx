@@ -1,7 +1,17 @@
 import { TimelineItem } from "./timeline-item";
 
+interface BlogPage {
+  url: string;
+  data: {
+    title: string;
+    date: string;
+    tags?: string[];
+    description?: string;
+  };
+}
+
 interface TimelineProps {
- posts: any[];
+ posts: BlogPage[];
  title?: string;
 }
 

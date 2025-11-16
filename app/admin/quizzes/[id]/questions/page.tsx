@@ -97,8 +97,9 @@ export default function AdminQuizQuestionsPage() {
    setShowCreateForm(false);
    resetForm();
   },
-  onError: (error: any) => {
-   toast.error(error.response?.data?.message || "Failed to add question");
+  onError: (error: unknown) => {
+   const err = error as { response?: { data?: { message?: string } } };
+   toast.error(err.response?.data?.message || "Failed to add question");
   },
  });
 
@@ -119,8 +120,9 @@ export default function AdminQuizQuestionsPage() {
    setEditingQuestion(null);
    resetForm();
   },
-  onError: (error: any) => {
-   toast.error(error.response?.data?.message || "Failed to update question");
+  onError: (error: unknown) => {
+   const err = error as { response?: { data?: { message?: string } } };
+   toast.error(err.response?.data?.message || "Failed to update question");
   },
  });
 
@@ -136,8 +138,9 @@ export default function AdminQuizQuestionsPage() {
    setShowDeleteDialog(false);
    setDeleteQuestionId(null);
   },
-  onError: (error: any) => {
-   toast.error(error.response?.data?.message || "Failed to delete question");
+  onError: (error: unknown) => {
+   const err = error as { response?: { data?: { message?: string } } };
+   toast.error(err.response?.data?.message || "Failed to delete question");
   },
  });
 

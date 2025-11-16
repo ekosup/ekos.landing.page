@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { adminQuizApi, QuizSession } from "@/lib/quiz-api";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Trash2, ArrowLeft, Clock, CheckCircle, XCircle } from "lucide-react";
+import { Trash2, ArrowLeft, Clock, CheckCircle } from "lucide-react";
 import { format } from "date-fns";
 
 export default function QuizSessionsPage() {

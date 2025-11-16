@@ -1,7 +1,5 @@
 import { ApiClient } from './api-client';
 
-const API_BASE_URL = 'https://auth-prod.ekos.my.id/api/v1';
-
 const api = ApiClient.getInstance().getAuthApi();
 
 export interface RegisterData {

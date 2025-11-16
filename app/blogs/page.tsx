@@ -1,13 +1,26 @@
 import { source } from "@/lib/source";
+import Link from "next/link";
+
+interface BlogPage {
+ url: string;
+ data: {
+  title: string;
+  date?: string;
+  tags?: string[];
+  description?: string;
+ };
+}
 
 export default function BlogsPage() {
- const pages = source
-  .getPages()
-  .sort(
-   (a, b) =>
-    new Date((b.data as any).date).getTime() -
-    new Date((a.data as any).date).getTime()
-  ); // Sort by date descending
+ const pages = source.getPages().sort((a, b) => {
+  const dateA = (a.data as any).date
+   ? new Date((a.data as any).date).getTime()
+   : 0;
+  const dateB = (b.data as any).date
+   ? new Date((b.data as any).date).getTime()
+   : 0;
+  return dateB - dateA;
+ }); // Sort by date descending
 
  // Group by first tag
  const grouped = pages.reduce((acc, page) => {
@@ -19,11 +32,15 @@ export default function BlogsPage() {
 
  // Sort each group by date descending
  Object.values(grouped).forEach((group) => {
-  group.sort(
-   (a, b) =>
-    new Date((b.data as any).date).getTime() -
-    new Date((a.data as any).date).getTime()
-  );
+  group.sort((a, b) => {
+   const dateA = (a.data as any).date
+    ? new Date((a.data as any).date).getTime()
+    : 0;
+   const dateB = (b.data as any).date
+    ? new Date((b.data as any).date).getTime()
+    : 0;
+   return dateB - dateA;
+  });
  });
 
  return (
@@ -38,7 +55,7 @@ export default function BlogsPage() {
         key={page.url}
         className="border-l-4 border-gray-300 pl-6 hover:border-blue-500 transition-colors"
        >
-        <a href={page.url} className="block group">
+        <Link href={page.url} className="block group">
          <h3 className="text-xl font-medium group-hover:text-blue-600 transition-colors">
           {page.data.title}
          </h3>
@@ -46,13 +63,15 @@ export default function BlogsPage() {
           {(page.data as any).description}
          </p>
          <p className="text-sm text-gray-500 mt-3">
-          {new Date((page.data as any).date).toLocaleDateString("en-US", {
-           year: "numeric",
-           month: "long",
-           day: "numeric",
-          })}
+          {(page.data as any).date
+           ? new Date((page.data as any).date).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+             })
+           : "No date"}
          </p>
-        </a>
+        </Link>
        </li>
       ))}
      </ul>

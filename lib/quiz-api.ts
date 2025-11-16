@@ -1,7 +1,5 @@
 import { ApiClient } from './api-client';
 
-const QUIZ_API_BASE_URL = 'https://quiz-prod.ekos.my.id/api/v1';
-
 const quizApi = ApiClient.getInstance().getQuizApi();
 
 export interface Quiz {

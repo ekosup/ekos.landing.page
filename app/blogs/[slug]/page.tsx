@@ -41,7 +41,7 @@ export async function generateStaticParams() {
  const params = await source.generateParams();
  // source.generateParams may return nested slug arrays for catch-all routes.
  // Our route is single-segment `[slug]`, so normalize to a string slug.
- return params.map((p: any) => {
+ return params.map((p) => {
   const s = p.slug;
   if (Array.isArray(s)) return { slug: s[s.length - 1] };
   return { slug: String(s) };

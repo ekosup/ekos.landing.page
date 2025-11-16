@@ -31,10 +31,15 @@ interface AuthProviderProps {
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
  const queryClient = useQueryClient();
- const [hasToken, setHasToken] = useState(false);
+ const [hasToken, setHasToken] = useState(
+  () => (typeof window !== 'undefined' ? !!localStorage.getItem("auth_token") : false)
+ );
 
  useEffect(() => {
-  setHasToken(!!localStorage.getItem("auth_token"));
+  if (typeof window !== 'undefined') {
+   const token = localStorage.getItem("auth_token");
+   setHasToken(!!token);
+  }
  }, []);
 
  const { data: user, isLoading } = useQuery({
@@ -78,7 +83,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
  const logout = async () => {
   try {
    await logoutMutation.mutateAsync();
-  } catch (error) {
+  } catch (_error) {
    // Even if logout fails, clear local state
    localStorage.removeItem("auth_token");
    setHasToken(false);

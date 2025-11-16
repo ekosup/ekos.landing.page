@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -34,8 +35,8 @@ export default function Home() {
     <Card>
      <CardContent className="pt-6">
       <p className="text-lg leading-relaxed">
-       Hi, I'm Eko Supriyono, a passionate full stack developer with a love for
-       creating innovative solutions. I specialize in web development, UI/UX
+       Hi, I&apos;m Eko Supriyono, a passionate full stack developer with a love
+       for creating innovative solutions. I specialize in web development, UI/UX
        design, and bringing ideas to life through code. With years of experience
        in various technologies, I strive to build user-friendly and efficient
        applications.
@@ -72,7 +73,7 @@ export default function Home() {
       <CardContent>
        <p className="mb-4">My first blog post</p>
        <Button asChild variant="outline">
-        <a href="/blogs/hello-world">Read More</a>
+        <Link href="/blogs/hello-world">Read More</Link>
        </Button>
       </CardContent>
      </Card>
@@ -86,7 +87,7 @@ export default function Home() {
         Enterprise.
        </p>
        <Button asChild variant="outline">
-        <a href="/blogs/modul-1-it-enterprise">Read More</a>
+        <Link href="/blogs/modul-1-it-enterprise">Read More</Link>
        </Button>
       </CardContent>
      </Card>
@@ -100,14 +101,14 @@ export default function Home() {
         (ITIL).
        </p>
        <Button asChild variant="outline">
-        <a href="/blogs/modul-2-manajemen-layanan-ti">Read More</a>
+        <Link href="/blogs/modul-2-manajemen-layanan-ti">Read More</Link>
        </Button>
       </CardContent>
      </Card>
     </div>
     <div className="text-center mt-8">
      <Button asChild>
-      <a href="/blogs">View All Blogs</a>
+      <Link href="/blogs">View All Blogs</Link>
      </Button>
     </div>
    </section>
@@ -154,7 +155,7 @@ export default function Home() {
    <section id="contact" className="py-20 px-10">
     <div className="max-w-4xl mx-auto text-center">
      <h2 className="text-3xl font-bold mb-8">Contact Me</h2>
-     <p className="text-lg mb-8">I'd love to hear from you. Let's connect!</p>
+     <p className="text-lg mb-8">I&apos;d love to hear from you. Let&apos;s connect!</p>
      <div className="flex justify-center space-x-6">
       <Button asChild>
        <a href="mailto:eko@example.com">Email</a>

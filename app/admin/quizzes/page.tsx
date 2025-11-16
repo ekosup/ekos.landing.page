@@ -3,13 +3,12 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth-context";
-import { adminQuizApi, quizApiClient, Quiz } from "@/lib/quiz-api";
+import { adminQuizApi, Quiz } from "@/lib/quiz-api";
 import { Button } from "@/components/ui/button";
 import {
  Card,
  CardContent,
  CardDescription,
- CardFooter,
  CardHeader,
  CardTitle,
 } from "@/components/ui/card";
@@ -92,8 +91,9 @@ export default function AdminQuizzesPage() {
    resetForm();
    setShowCreateForm(false);
   },
-  onError: (error: any) => {
-   toast.error(error.response?.data?.message || "Failed to create quiz");
+  onError: (error: unknown) => {
+   const err = error as { response?: { data?: { message?: string } } };
+   toast.error(err.response?.data?.message || "Failed to create quiz");
   },
  });
 
@@ -119,8 +119,9 @@ export default function AdminQuizzesPage() {
    resetForm();
    setEditingQuiz(null);
   },
-  onError: (error: any) => {
-   toast.error(error.response?.data?.message || "Failed to update quiz");
+  onError: (error: unknown) => {
+   const err = error as { response?: { data?: { message?: string } } };
+   toast.error(err.response?.data?.message || "Failed to update quiz");
   },
  });
 
@@ -133,8 +134,9 @@ export default function AdminQuizzesPage() {
    setShowDeleteDialog(false);
    setDeleteQuizId(null);
   },
-  onError: (error: any) => {
-   toast.error(error.response?.data?.message || "Failed to delete quiz");
+  onError: (error: unknown) => {
+   const err = error as { response?: { data?: { message?: string } } };
+   toast.error(err.response?.data?.message || "Failed to delete quiz");
   },
  });
  const resetForm = () => {

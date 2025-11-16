@@ -35,6 +35,13 @@ export default function QuizSessionPage() {
   enabled: !!quizId,
  });
 
+ // Initialize timer when quiz data is loaded
+ useEffect(() => {
+  if (quizData?.result?.quiz?.time_limit && timeLeft === null) {
+   setTimeLeft(quizData.result.quiz.time_limit * 60); // Convert minutes to seconds
+  }
+ }, [quizData, timeLeft]);
+
  // Fetch questions
  const { data: questionsData, isLoading: questionsLoading } = useQuery({
   queryKey: ["questions", sessionId],
@@ -149,6 +156,9 @@ export default function QuizSessionPage() {
   questionsData?.result?.questions?.length,
   showResults,
   answers,
+  handleAnswerSubmit,
+  hasAnsweredCurrentQuestion,
+  questionsData?.result?.questions,
  ]);
 
  if (authLoading || quizLoading || questionsLoading) {

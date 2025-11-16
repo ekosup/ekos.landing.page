@@ -1,14 +1,24 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 
+interface BlogPage {
+  url: string;
+  data: {
+    title: string;
+    date: string;
+    tags?: string[];
+    description?: string;
+  };
+}
+
 interface TimelineItemProps {
- page: any;
+ page: BlogPage;
  isLast?: boolean;
 }
 
 export function TimelineItem({ page, isLast = false }: TimelineItemProps) {
- const date = new Date((page.data as any).date);
- const tags = (page.data as any).tags || [];
+ const date = new Date(page.data.date);
+ const tags = page.data.tags || [];
 
  return (
   <div className="relative flex gap-6">
@@ -61,7 +71,7 @@ export function TimelineItem({ page, isLast = false }: TimelineItemProps) {
 
      {/* Description */}
      <p className="text-muted-foreground leading-relaxed mb-4">
-      {(page.data as any).description}
+      {page.data.description}
      </p>
 
      {/* Read more link */}

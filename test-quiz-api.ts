@@ -67,13 +67,14 @@ async function testQuizAPI(email?: string, password?: string) {
                 });
                 console.log('✅ Delete quiz response:');
                 console.log(JSON.stringify(deleteResponse.data, null, 2));
-            } catch (deleteError: any) {
+            } catch (deleteError: unknown) {
                 console.log('⚠️  Delete quiz failed (expected if not admin):');
-                if (deleteError.response) {
-                    console.log(`Status: ${deleteError.response.status}`);
-                    console.log('Response:', deleteError.response.data);
+                const err = deleteError as { response?: { status?: number; data?: unknown } };
+                if (err.response) {
+                    console.log(`Status: ${err.response.status}`);
+                    console.log('Response:', err.response.data);
                 } else {
-                    console.log(deleteError.message);
+                    console.log((deleteError as Error).message);
                 }
             }
 
@@ -81,13 +82,14 @@ async function testQuizAPI(email?: string, password?: string) {
             console.log('⚠️  No quizzes found or API returned unexpected format');
         }
 
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.log('❌ Error testing API:');
-        if (error.response) {
-            console.log(`Status: ${error.response.status}`);
-            console.log('Response:', error.response.data);
+        const err = error as { response?: { status?: number; data?: unknown }; message?: string };
+        if (err.response) {
+            console.log(`Status: ${err.response.status}`);
+            console.log('Response:', err.response.data);
         } else {
-            console.log(error.message);
+            console.log(err.message || 'Unknown error');
         }
     }
 }
