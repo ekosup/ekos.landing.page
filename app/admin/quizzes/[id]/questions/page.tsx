@@ -316,6 +316,11 @@ export default function AdminQuizQuestionsPage() {
         Back to Quizzes
        </Button>
       </Link>
+      <Link href={`/admin/quizzes/${quizId}/sessions`}>
+       <Button variant="outline" size="sm">
+        View Sessions
+       </Button>
+      </Link>
       <div>
        <h1 className="text-3xl font-bold text-gray-900">Quiz Questions</h1>
        <p className="text-gray-600">Manage questions for this quiz</p>

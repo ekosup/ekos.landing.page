@@ -93,6 +93,42 @@ export interface QuizResultResponse {
     };
 }
 
+export interface QuizSession {
+    id: string;
+    quiz_id: string;
+    user_id: string;
+    start_time: string;
+    end_time: string | null;
+    status: 'ongoing' | 'completed';
+    score: number | null;
+}
+
+export interface QuizSessionsResponse {
+    success: boolean;
+    result: {
+        sessions: QuizSession[];
+        total: number;
+    };
+}
+
+export interface DeleteSessionResponse {
+    success: boolean;
+    message: string;
+}
+
+export interface QuizSessionsResponse {
+    success: boolean;
+    result: {
+        sessions: QuizSession[];
+        total: number;
+    };
+}
+
+export interface DeleteSessionResponse {
+    success: boolean;
+    message: string;
+}
+
 // API functions
 export const quizApiClient = {
     getQuizzes: async (page: number = 0, category?: string, difficulty?: string): Promise<QuizListResponse> => {
@@ -224,6 +260,17 @@ export const adminQuizApi = {
         }
     }> => {
         const response = await quizApi.get(`/admin/quizzes/${quizId}/stats`);
+        return response.data;
+    },
+
+    // Session management
+    getQuizSessions: async (quizId: string, offset: number = 0, limit: number = 10): Promise<QuizSessionsResponse> => {
+        const response = await quizApi.get(`/admin/quizzes/${quizId}/sessions?offset=${offset}&limit=${limit}`);
+        return response.data;
+    },
+
+    deleteSession: async (sessionId: string): Promise<DeleteSessionResponse> => {
+        const response = await quizApi.delete(`/admin/sessions/${sessionId}`);
         return response.data;
     },
 };

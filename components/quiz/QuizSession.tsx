@@ -69,7 +69,7 @@ export function QuizSession({
 
     <QuestionCard
      question={currentQuestion}
-     selectedOptionId={currentAnswer?.selected_option_ids?.[0]}
+     selectedOptionIds={currentAnswer?.selected_option_ids}
      answerText={currentAnswer?.answer_text}
      onOptionSelect={onOptionSelect}
      onTextAnswer={onTextAnswer}

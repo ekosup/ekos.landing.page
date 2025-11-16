@@ -18,7 +18,7 @@ interface Question {
 
 interface QuestionCardProps {
  question: Question;
- selectedOptionId?: string;
+ selectedOptionIds?: string[];
  answerText?: string;
  onOptionSelect: (optionId: string) => void;
  onTextAnswer: (text: string) => void;
@@ -26,7 +26,7 @@ interface QuestionCardProps {
 
 export function QuestionCard({
  question,
- selectedOptionId,
+ selectedOptionIds,
  answerText,
  onOptionSelect,
  onTextAnswer,
@@ -37,11 +37,12 @@ export function QuestionCard({
     <CardTitle>{question.question_text}</CardTitle>
    </CardHeader>
    <CardContent>
-    {question.type === "mcq" && question.options && (
+    {question.options && question.options.length > 0 && (
      <AnswerOptions
       options={question.options}
-      selectedOptionId={selectedOptionId}
+      selectedOptionIds={selectedOptionIds}
       onOptionSelect={onOptionSelect}
+      questionType={question.type}
      />
     )}
 

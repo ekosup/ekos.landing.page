@@ -9,6 +9,7 @@ import {
  Card,
  CardContent,
  CardDescription,
+ CardFooter,
  CardHeader,
  CardTitle,
 } from "@/components/ui/card";
@@ -231,9 +232,7 @@ export default function AdminQuizzesPage() {
     <div className="flex justify-between items-center mb-8">
      <div>
       <h1 className="text-4xl font-bold text-gray-900 mb-2">Quiz Management</h1>
-      <p className="text-xl text-gray-600">
-       Create and manage quizzes for IT Audit and Cybersecurity
-      </p>
+      <p className="text-xl text-gray-600">Create and manage quizzes</p>
      </div>
      <Button onClick={() => setShowCreateForm(!showCreateForm)}>
       <Plus className="w-4 h-4 mr-2" />
@@ -376,8 +375,11 @@ export default function AdminQuizzesPage() {
 
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
      {quizzes.map((quiz) => (
-      <Card key={quiz.id} className="hover:shadow-lg transition-shadow">
-       <CardHeader>
+      <Card
+       key={quiz.id}
+       className="hover:shadow-lg transition-shadow flex flex-col h-full"
+      >
+       <CardHeader className="shrink-0">
         <div className="flex justify-between items-start">
          <div className="flex-1">
           <CardTitle className="text-lg">{quiz.title}</CardTitle>
@@ -388,8 +390,8 @@ export default function AdminQuizzesPage() {
          </Badge>
         </div>
        </CardHeader>
-       <CardContent>
-        <div className="space-y-2 text-sm text-gray-600 mb-4">
+       <CardContent className="mt-auto">
+        <div className="space-y-2 text-sm text-gray-600">
          <div>
           Category: <span className="font-medium">{quiz.category}</span>
          </div>
@@ -410,8 +412,7 @@ export default function AdminQuizzesPage() {
           </span>
          </div>
         </div>
-
-        <div className="flex gap-2">
+        <div className="flex gap-2 mt-2">
          <Button size="sm" variant="outline" onClick={() => handleEdit(quiz)}>
           <Edit className="w-4 h-4" />
          </Button>
