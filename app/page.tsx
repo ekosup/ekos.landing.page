@@ -1,174 +1,145 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+"use client";
+
 import projects from "../projects.json";
+import { ArrowUpRight, ArrowUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { HeroTerminal } from "@/components/hero-terminal";
+import { ProjectsSection } from "@/components/projects-section";
+import { ArchitectureShowcase } from "@/components/architecture-showcase";
+import { SkillsMatrix } from "@/components/skills-matrix";
+import { ContactSection } from "@/components/contact-section";
 
 export default function Home() {
- return (
-  <div className="min-h-screen bg-gray-50 text-gray-900">
-   {/* Hero Section */}
-   <section
-    id="hero"
-    className="relative flex items-center justify-center min-h-screen bg-linear-to-br from-gray-100 to-gray-200 text-gray-900 overflow-hidden pt-16"
-   >
-    {/* Floating gradient bubbles */}
-    <div className="absolute inset-0 overflow-hidden">
-     <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-linear-to-r from-blue-200 to-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-     <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-linear-to-r from-purple-200 to-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-     <div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-linear-to-r from-pink-200 to-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-    </div>
-    <div className="relative z-10 text-center">
-     <h1 className="text-5xl font-bold mb-4">Eko Supriyono</h1>
-     <p className="text-xl mb-8 text-gray-600">
-      Full Stack Developer | Designer | Innovator
-     </p>
-     <Button asChild>
-      <a href="#about">Learn More</a>
-     </Button>
-    </div>
-   </section>
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
-   {/* About Section */}
-   <section id="about" className="py-20 px-10 max-w-4xl mx-auto">
-    <h2 className="text-3xl font-bold mb-8 text-center">About Me</h2>
-    <Card>
-     <CardContent className="pt-6">
-      <p className="text-lg leading-relaxed">
-       Hi, I&apos;m Eko Supriyono, a passionate full stack developer with a love
-       for creating innovative solutions. I specialize in web development, UI/UX
-       design, and bringing ideas to life through code. With years of experience
-       in various technologies, I strive to build user-friendly and efficient
-       applications.
-      </p>
-     </CardContent>
-    </Card>
-   </section>
+  return (
+    <div className="min-h-screen bg-white dark:bg-[#09090b] text-neutral-900 dark:text-neutral-100 transition-colors duration-200">
+      
+      {/* Hero Section */}
+      <section
+        id="hero"
+        className="min-h-[85vh] flex flex-col items-center justify-center pt-28 pb-16 px-6"
+      >
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          
+          {/* Minimal Status Indicator */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 text-xs font-mono">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" />
+            <span>Available for select engineering projects</span>
+          </div>
 
-   {/* Skills Section */}
-   <section id="skills" className="py-20 bg-gray-100 px-10">
-    <div className="max-w-4xl mx-auto">
-     <h2 className="text-3xl font-bold mb-8 text-center">Skills</h2>
-     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <Badge>JavaScript</Badge>
-      <Badge>TypeScript</Badge>
-      <Badge>React</Badge>
-      <Badge>Next.js</Badge>
-      <Badge>Node.js</Badge>
-      <Badge>Python</Badge>
-      <Badge>Tailwind CSS</Badge>
-      <Badge>Git</Badge>
-     </div>
-    </div>
-   </section>
+          {/* Clean High-Contrast Headline */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-neutral-900 dark:text-white">
+            Eko Supriyono
+          </h1>
 
-   {/* Blogs Section */}
-   <section id="blogs" className="py-20 px-10 max-w-4xl mx-auto">
-    <h2 className="text-3xl font-bold mb-8 text-center">Latest Blogs</h2>
-    <div className="space-y-4">
-     <Card>
-      <CardHeader>
-       <CardTitle>Hello World</CardTitle>
-      </CardHeader>
-      <CardContent>
-       <p className="mb-4">My first blog post</p>
-       <Button asChild variant="outline">
-        <Link href="/blogs/hello-world">Read More</Link>
-       </Button>
-      </CardContent>
-     </Card>
-     <Card>
-      <CardHeader>
-       <CardTitle>M1: IT Enterprise</CardTitle>
-      </CardHeader>
-      <CardContent>
-       <p className="mb-4">
-        Ringkasan 7 bab utama Modul 1 yang memetakan konsep kunci dalam IT
-        Enterprise.
-       </p>
-       <Button asChild variant="outline">
-        <Link href="/blogs/modul-1-it-enterprise">Read More</Link>
-       </Button>
-      </CardContent>
-     </Card>
-     <Card>
-      <CardHeader>
-       <CardTitle>M2: Manajemen Layanan TI</CardTitle>
-      </CardHeader>
-      <CardContent>
-       <p className="mb-4">
-        Ringkasan 4 bab utama Modul 2 yang mengikuti Siklus Hidup Layanan
-        (ITIL).
-       </p>
-       <Button asChild variant="outline">
-        <Link href="/blogs/modul-2-manajemen-layanan-ti">Read More</Link>
-       </Button>
-      </CardContent>
-     </Card>
-    </div>
-    <div className="text-center mt-8">
-     <Button asChild>
-      <Link href="/blogs">View All Blogs</Link>
-     </Button>
-    </div>
-   </section>
+          <p className="text-xl md:text-2xl font-medium text-neutral-600 dark:text-neutral-400">
+            Full Stack Software Engineer
+          </p>
 
-   {/* Projects Section */}
-   <section id="projects" className="py-20 bg-gray-100 px-10">
-    <div className="max-w-4xl mx-auto">
-     <h2 className="text-3xl font-bold mb-8 text-center">Projects</h2>
-     <div className="grid md:grid-cols-2 gap-8">
-      {projects.map((project) => (
-       <Card key={project.id}>
-        <CardHeader>
-         <CardTitle>{project.title}</CardTitle>
-        </CardHeader>
-        <CardContent>
-         <p className="mb-4">{project.description}</p>
-         <div className="flex flex-wrap gap-2 mb-4">
-          {project.technologies.map((tech) => (
-           <Badge key={tech} variant="secondary">
-            {tech}
-           </Badge>
-          ))}
-         </div>
-         <div className="flex space-x-2">
-          <Button asChild size="sm">
-           <a href={project.demo} target="_blank" rel="noopener noreferrer">
-            View Demo
-           </a>
-          </Button>
-          <Button asChild variant="outline" size="sm">
-           <a href={project.github} target="_blank" rel="noopener noreferrer">
-            GitHub
-           </a>
-          </Button>
-         </div>
-        </CardContent>
-       </Card>
-      ))}
-     </div>
-    </div>
-   </section>
+          <p className="text-sm md:text-base text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+            Engineering high-performance web applications, in-browser WASM database engines, and real-time business intelligence systems with <span className="text-neutral-900 dark:text-white font-mono">TypeScript</span>, <span className="text-neutral-900 dark:text-white font-mono">React 19</span>, and <span className="text-neutral-900 dark:text-white font-mono">Next.js 16</span>.
+          </p>
 
-   {/* Contact Section */}
-   <section id="contact" className="py-20 px-10">
-    <div className="max-w-4xl mx-auto text-center">
-     <h2 className="text-3xl font-bold mb-8">Contact Me</h2>
-     <p className="text-lg mb-8">I&apos;d love to hear from you. Let&apos;s connect!</p>
-     <div className="flex justify-center space-x-6">
-      <Button asChild>
-       <a href="mailto:eko@example.com">Email</a>
-      </Button>
-      <Button asChild variant="outline">
-       <a href="https://linkedin.com/in/eko">LinkedIn</a>
-      </Button>
-      <Button asChild variant="outline">
-       <a href="https://github.com/eko">GitHub</a>
-      </Button>
-     </div>
+          {/* CTAs */}
+          <div className="flex gap-3 justify-center pt-2">
+            <Button
+              asChild
+              size="lg"
+              className="bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-100 font-mono text-xs h-11 px-6 rounded-md shadow-xs"
+            >
+              <a href="#work" className="flex items-center gap-1.5">
+                Explore Projects <ArrowUpRight className="w-4 h-4" />
+              </a>
+            </Button>
+
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-neutral-300 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 font-mono text-xs h-11 px-6 rounded-md"
+            >
+              <a href="#contact">
+                Contact
+              </a>
+            </Button>
+          </div>
+
+          {/* Minimal Spec Code Preview Widget */}
+          <div className="pt-8">
+            <HeroTerminal />
+          </div>
+        </div>
+      </section>
+
+      {/* Metrics Section */}
+      <section className="py-12 px-6 border-y border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-950/40">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {[
+              { label: "Engineering Experience", value: "5+ Yrs" },
+              { label: "Production Apps", value: "10+" },
+              { label: "Core Technologies", value: "15+" },
+              { label: "Open Source Repos", value: "25+" },
+            ].map((stat, index) => (
+              <div key={index} className="p-4">
+                <div className="text-2xl md:text-3xl font-mono font-bold text-neutral-900 dark:text-white mb-1">
+                  {stat.value}
+                </div>
+                <div className="text-xs font-mono text-neutral-500 uppercase tracking-wider">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Projects Section */}
+      <section id="work" className="px-6 border-b border-neutral-200 dark:border-neutral-800">
+        <ProjectsSection projects={projects} />
+      </section>
+
+      {/* Architecture Deep Dive Section */}
+      <section id="architecture" className="px-6 border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50/30 dark:bg-neutral-950/30">
+        <ArchitectureShowcase />
+      </section>
+
+      {/* Technical Arsenal Section */}
+      <section id="skills" className="px-6 border-b border-neutral-200 dark:border-neutral-800">
+        <SkillsMatrix />
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="px-6 bg-neutral-50/50 dark:bg-neutral-950/40">
+        <ContactSection />
+      </section>
+
+      {/* Footer */}
+      <footer className="py-10 px-6 border-t border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#09090b]">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-neutral-500">
+          <p>© {new Date().getFullYear()} Eko Supriyono. Built with Next.js & Tailwind CSS.</p>
+
+          <div className="flex items-center gap-6">
+            <a href="https://github.com/ekosup" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/esupriyono/" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+              LinkedIn
+            </a>
+            <a href="mailto:hello@ekos.my.id" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+              Contact
+            </a>
+            <button
+              onClick={scrollToTop}
+              className="p-1.5 rounded bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-900 dark:text-white transition-colors ml-2"
+              title="Back to top"
+            >
+              <ArrowUp className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </div>
+      </footer>
     </div>
-   </section>
-  </div>
- );
+  );
 }
