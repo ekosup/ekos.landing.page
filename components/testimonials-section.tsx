@@ -6,9 +6,9 @@ export function TestimonialsSection() {
   const testimonials = [
     {
       quote:
-        "Eko has an exceptional ability to design resilient architectures under strict air-gapped government constraints. His attention to system performance and SPBE compliance made a critical difference in our deployment.",
+        "Eko has an exceptional ability to design resilient architectures under strict air-gapped enterprise constraints. His attention to system performance and security compliance made a critical difference in our deployment.",
       author: "Team Lead",
-      organization: "Public Sector Tech Unit / Government Initiative",
+      organization: "Enterprise Tech Unit",
       badge: "Peer Endorsement",
     },
     {
@@ -22,7 +22,7 @@ export function TestimonialsSection() {
       quote:
         "Technical depth combined with clear communication. He bridges the gap between low-level technical execution and executive stakeholder deliverables seamlessly.",
       author: "Project Manager",
-      organization: "GovTech IT Infrastructure",
+      organization: "Enterprise IT Infrastructure",
       badge: "Project Lead",
     },
   ];
@@ -37,7 +37,7 @@ export function TestimonialsSection() {
           Social Proof & Testimonials
         </h2>
         <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mt-2 max-w-xl">
-          Feedback from team leads, solution architects, and engineering peers across government & enterprise software projects.
+          Feedback from team leads, solution architects, and engineering peers across enterprise software projects.
         </p>
       </div>
 

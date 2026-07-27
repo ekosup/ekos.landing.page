@@ -37,13 +37,13 @@ export default function Home() {
           </h1>
 
           {/* SINGLE MAIN POSITIONING HEADLINE */}
-          <p className="text-xl sm:text-3xl font-bold tracking-tight text-cyan-600 dark:text-cyan-400">
+          <p className="text-xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
             Senior Full Stack Software Engineer
           </p>
 
           {/* SECONDARY NOTE UNDERNEATH (NOT 3 EQUAL TITLES) */}
           <p className="text-xs sm:text-sm md:text-base text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-            Engineering high-performance enterprise platforms, air-gapped government messaging systems, and in-browser WASM database engines with <span className="text-neutral-900 dark:text-white font-mono">TypeScript</span>, <span className="text-neutral-900 dark:text-white font-mono">React 19</span>, and <span className="text-neutral-900 dark:text-white font-mono">Next.js 16</span>.
+            Engineering high-performance enterprise platforms, air-gapped enterprise messaging systems, and in-browser WASM database engines with <span className="text-neutral-900 dark:text-white font-mono">TypeScript</span>, <span className="text-neutral-900 dark:text-white font-mono">React 19</span>, and <span className="text-neutral-900 dark:text-white font-mono">Next.js 16</span>.
             <span className="block mt-2 text-xs font-mono text-neutral-500">
               ✦ Also available for technical advisory and high-impact custom builds.
             </span>

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 export function ContactSection() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const emailAddress = "hello@ekos.my.id";
-  const whatsappNumber = "6281234567890"; // WhatsApp format
+  const whatsappNumber = "6285128039689";
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(emailAddress);

@@ -27,8 +27,8 @@
   },
   {
     "id": "spbe-data-platform",
-    "title": "National Gov Data Integration Gateway",
-    "description": "Multi-agency interoperability platform and API gateway enabling secure data exchange and real-time analytics across public sector databases.",
+    "title": "Enterprise Data Integration Gateway",
+    "description": "Multi-agency interoperability platform and API gateway enabling secure data exchange and real-time analytics across enterprise databases.",
     "category": "Enterprise System",
     "type": "case-study",
     "badge": "Case Study",
@@ -43,11 +43,63 @@
     "highlights": [
       "Unified API catalog for cross-department data pipelines",
       "Role-based access matrix with multi-level security redaction",
-      "Automated compliance report generator for government audits"
+      "Automated compliance report generator for audits"
     ],
     "link": "/work/spbe-data-platform",
     "github": "",
     "demo": "/work/spbe-data-platform",
+    "featured": true
+  },
+  {
+    "id": "portal-bppk",
+    "title": "Enterprise Portal CMS",
+    "description": "Multi-tenant enterprise portal and secretarial management system with CMS, document workflow, event management, and SSO integration serving 12+ organizational units under air-gapped Kubernetes infrastructure.",
+    "category": "Enterprise CMS",
+    "type": "case-study",
+    "badge": "Case Study",
+    "constraint": "Multi-Tenant Portal & Air-Gapped Kubernetes Deployment",
+    "technologies": [
+      "Django 5.2",
+      "PostgreSQL + MinIO",
+      "Django Unfold Admin",
+      "HTMX + Alpine.js",
+      "Kubernetes + Docker",
+      "Redis + Celery"
+    ],
+    "highlights": [
+      "Multi-tenant architecture serving 12+ organizational units with shared CMS core",
+      "SSO integration via django-allauth with centralized identity provider",
+      "20+ embedded modules: knowledge management, quiz, accreditation, innovation gallery"
+    ],
+    "link": "/work/portal-bppk",
+    "github": "",
+    "demo": "/work/portal-bppk",
+    "featured": true
+  },
+  {
+    "id": "lms",
+    "title": "Enterprise Learning Center (LMS)",
+    "description": "Enterprise LMS with AI-driven knowledge management system, serving thousands of employees with adaptive learning paths, automated assessment, and RAG-powered intelligent search across 20+ microservices.",
+    "category": "Enterprise Learning Platform",
+    "type": "case-study",
+    "badge": "Case Study",
+    "constraint": "National-Scale LMS & AI-Powered Knowledge Management",
+    "technologies": [
+      "Spring Boot + Quarkus",
+      "Next.js 16",
+      "LangChain + RAG Pipeline",
+      "PostgreSQL + Elasticsearch",
+      "RabbitMQ + Redis",
+      "Docker + Harbor Registry"
+    ],
+    "highlights": [
+      "AI-powered knowledge management with RAG-driven semantic search across learning content",
+      "20+ microservices: LMS core, proctoring, certification, reporting, mobile API",
+      "Automated report generation & adaptive learning path recommendation engine"
+    ],
+    "link": "/work/klc",
+    "github": "",
+    "demo": "/work/klc",
     "featured": true
   },
   {
@@ -120,25 +172,26 @@
     "featured": true
   },
   {
-    "id": "pranata-komputer",
-    "title": "Pranata Komputer Knowledge Base",
-    "description": "Comprehensive documentation repository and interactive study platform for Pranata Komputer certification modules, covering enterprise IT architecture and governance.",
-    "category": "Documentation",
+    "id": "portfolio-page",
+    "title": "Engineering Portfolio & Knowledge Base",
+    "description": "Personal portfolio site and technical knowledge repository showcasing enterprise architecture case studies, interactive demos, and engineering deep dives — built with cutting-edge frontend stack.",
+    "category": "Web",
     "type": "demo",
-    "badge": "Live Demo",
+    "badge": "Live Site",
     "technologies": [
-      "MDX",
-      "Fumadocs",
       "Next.js 16",
-      "Tailwind CSS"
+      "TypeScript",
+      "Tailwind CSS",
+      "MDX",
+      "Cloudflare Pages"
     ],
     "highlights": [
-      "Structured certification modules",
-      "Full-text search & study guides",
-      "KaTeX math equation support"
+      "Enterprise architecture case studies & system design deep dives",
+      "Interactive code playgrounds & live demo showcases",
+      "Dark/light mode with responsive design"
     ],
-    "github": "https://github.com/ekosup/ekos-knowledge-repo",
-    "demo": "/blogs",
+    "github": "https://github.com/ekosup/ekos.landing.page",
+    "demo": "/",
     "featured": true
   }
 ]

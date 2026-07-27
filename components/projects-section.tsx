@@ -99,7 +99,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
         <div className="hidden sm:flex items-center gap-4 text-[11px] font-mono text-neutral-500">
           <span className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-cyan-500 inline-block" />
-            Case Study (Air-Gapped/Gov)
+            Case Study (Air-Gapped/Enterprise)
           </span>
           <span className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" />
