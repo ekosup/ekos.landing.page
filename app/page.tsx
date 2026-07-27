@@ -79,7 +79,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { label: "Engineering Experience", value: "5+ Yrs" },
+              { label: "Engineering Experience", value: "8+ Yrs" },
               { label: "Production Apps", value: "10+" },
               { label: "Core Technologies", value: "15+" },
               { label: "Open Source Repos", value: "25+" },
