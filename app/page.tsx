@@ -7,6 +7,7 @@ import { HeroTerminal } from "@/components/hero-terminal";
 import { ProjectsSection } from "@/components/projects-section";
 import { ArchitectureShowcase } from "@/components/architecture-showcase";
 import { SkillsMatrix } from "@/components/skills-matrix";
+import { TestimonialsSection } from "@/components/testimonials-section";
 import { ContactSection } from "@/components/contact-section";
 
 export default function Home() {
@@ -22,25 +23,30 @@ export default function Home() {
         id="hero"
         className="min-h-[85vh] flex flex-col items-center justify-center pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6"
       >
-        <div className="max-w-4xl mx-auto text-center space-y-6 w-full">
+        <div className="max-w-6xl mx-auto text-center space-y-6 w-full">
           
           {/* Minimal Status Indicator */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 text-[11px] sm:text-xs font-mono max-w-full text-center">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block shrink-0" />
-            <span className="truncate sm:whitespace-normal">Available for select engineering projects</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 text-[11px] sm:text-xs font-mono max-w-full text-center">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block shrink-0 animate-pulse" />
+            <span className="truncate sm:whitespace-normal">Available for Collaboration</span>
           </div>
 
-          {/* Clean High-Contrast Headline */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-neutral-900 dark:text-white break-words">
+          {/* Clean High-Contrast Name */}
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-neutral-900 dark:text-white break-words">
             Eko Supriyono
           </h1>
 
-          <p className="text-lg sm:text-xl md:text-2xl font-medium text-neutral-600 dark:text-neutral-400">
-            Full Stack Software Engineer
+          {/* SINGLE MAIN POSITIONING HEADLINE */}
+          <p className="text-xl sm:text-3xl font-bold tracking-tight text-cyan-600 dark:text-cyan-400">
+            Senior Full Stack Software Engineer
           </p>
 
+          {/* SECONDARY NOTE UNDERNEATH (NOT 3 EQUAL TITLES) */}
           <p className="text-xs sm:text-sm md:text-base text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-            Engineering high-performance web applications, in-browser WASM database engines, and real-time business intelligence systems with <span className="text-neutral-900 dark:text-white font-mono">TypeScript</span>, <span className="text-neutral-900 dark:text-white font-mono">React 19</span>, and <span className="text-neutral-900 dark:text-white font-mono">Next.js 16</span>.
+            Engineering high-performance enterprise platforms, air-gapped government messaging systems, and in-browser WASM database engines with <span className="text-neutral-900 dark:text-white font-mono">TypeScript</span>, <span className="text-neutral-900 dark:text-white font-mono">React 19</span>, and <span className="text-neutral-900 dark:text-white font-mono">Next.js 16</span>.
+            <span className="block mt-2 text-xs font-mono text-neutral-500">
+              ✦ Also available for technical advisory and high-impact custom builds.
+            </span>
           </p>
 
           {/* CTAs */}
@@ -51,7 +57,7 @@ export default function Home() {
               className="bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-100 font-mono text-xs h-11 px-6 rounded-md shadow-xs w-full sm:w-auto"
             >
               <a href="#work" className="flex items-center justify-center gap-1.5">
-                Explore Projects <ArrowUpRight className="w-4 h-4" />
+                Explore Projects & Case Studies <ArrowUpRight className="w-4 h-4" />
               </a>
             </Button>
 
@@ -62,7 +68,7 @@ export default function Home() {
               className="border-neutral-300 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 font-mono text-xs h-11 px-6 rounded-md w-full sm:w-auto"
             >
               <a href="#contact">
-                Contact
+                Get in Touch
               </a>
             </Button>
           </div>
@@ -74,15 +80,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Metrics Section */}
+      {/* Honest & Verifiable Metrics Section */}
       <section className="py-10 sm:py-12 px-4 sm:px-6 border-y border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-950/40">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 text-center">
             {[
-              { label: "Engineering Experience", value: "8+ Yrs" },
-              { label: "Production Apps", value: "10+" },
-              { label: "Core Technologies", value: "15+" },
-              { label: "Open Source Repos", value: "25+" },
+              { label: "Engineering Experience", value: "7+ Yrs" },
+              { label: "Gov & Enterprise Systems", value: "4+ Systems" },
+              { label: "Public Repos & Demos", value: "8+ Repos" },
+              { label: "Security Compliance", value: "SPBE Ready" },
             ].map((stat, index) => (
               <div key={index} className="p-2.5 sm:p-4 rounded-lg bg-white/50 dark:bg-neutral-900/30 border border-neutral-200/50 dark:border-neutral-800/50 sm:border-none sm:bg-transparent">
                 <div className="text-xl sm:text-2xl md:text-3xl font-mono font-bold text-neutral-900 dark:text-white mb-1">
@@ -95,9 +101,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Projects Section */}
+      {/* Featured Projects & Case Studies Section */}
       <section id="work" className="px-4 sm:px-6 border-b border-neutral-200 dark:border-neutral-800">
-        <ProjectsSection projects={projects} />
+        <ProjectsSection projects={projects as any} />
       </section>
 
       {/* Architecture Deep Dive Section */}
@@ -110,6 +116,11 @@ export default function Home() {
         <SkillsMatrix />
       </section>
 
+      {/* Peer & Team Testimonials Section */}
+      <section id="testimonials" className="px-4 sm:px-6 border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50/30 dark:bg-neutral-950/30">
+        <TestimonialsSection />
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="px-4 sm:px-6 bg-neutral-50/50 dark:bg-neutral-950/40">
         <ContactSection />
@@ -118,7 +129,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-10 px-4 sm:px-6 border-t border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#09090b]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-neutral-500 text-center md:text-left">
-          <p>© {new Date().getFullYear()} Eko Supriyono. Built with Next.js & Tailwind CSS.</p>
+          <p>© {new Date().getFullYear()} Eko Supriyono. Senior Full Stack Software Engineer.</p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <a href="https://github.com/ekosup" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-900 dark:hover:text-white transition-colors">

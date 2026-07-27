@@ -24,7 +24,7 @@ export function Navbar() {
 
  return (
   <header className="fixed top-0 w-full bg-white/90 dark:bg-[#09090b]/90 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 z-50 transition-colors duration-200">
-   <div className="max-w-6xl mx-auto px-6">
+   <div className="max-w-6xl mx-auto px-4 sm:px-6">
     <div className="flex justify-between items-center h-16">
      {/* Brand / Logo */}
      <div className="flex items-center">
@@ -63,12 +63,6 @@ export function Navbar() {
        className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
       >
        Skills
-      </Link>
-      <Link
-       href="/blogs"
-       className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
-      >
-       Blogs
       </Link>
       <Link
        href={isHome ? "#contact" : "/#contact"}
@@ -121,7 +115,6 @@ export function Navbar() {
      <Link href={isHome ? "#work" : "/#work"} onClick={() => setMobileMenuOpen(false)} className="block text-neutral-700 dark:text-neutral-300">Projects</Link>
      <Link href={isHome ? "#architecture" : "/#architecture"} onClick={() => setMobileMenuOpen(false)} className="block text-neutral-700 dark:text-neutral-300">Architecture</Link>
      <Link href={isHome ? "#skills" : "/#skills"} onClick={() => setMobileMenuOpen(false)} className="block text-neutral-700 dark:text-neutral-300">Skills</Link>
-     <Link href="/blogs" onClick={() => setMobileMenuOpen(false)} className="block text-neutral-700 dark:text-neutral-300">Blogs</Link>
      <Link href={isHome ? "#contact" : "/#contact"} onClick={() => setMobileMenuOpen(false)} className="block text-neutral-700 dark:text-neutral-300">Contact</Link>
     </div>
    )}

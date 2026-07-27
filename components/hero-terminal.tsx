@@ -9,7 +9,7 @@ export function HeroTerminal() {
 
   const copySnippet = () => {
     const text = activeTab === "specs" 
-      ? `// Eko Supriyono — Profile Spec\nexport const profile = {\n  role: "Full Stack Engineer",\n  specialization: ["Client-side WASM Databases", "Business Intelligence", "Markdown Engines"],\n  status: "Available for engineering projects",\n  location: "Indonesia"\n};`
+      ? `// Eko Supriyono - Profile Spec\nexport const profile = {\n  role: "Full Stack Engineer",\n  specialization: ["Client-side WASM Databases", "Business Intelligence", "Markdown Engines"],\n  status: "Available for engineering projects",\n  location: "Indonesia"\n};`
       : activeTab === "stack"
       ? `// Primary Engineering Stack\nconst stack = [\n  "TypeScript", "React 19", "Next.js", "SQLite WASM",\n  "Tailwind CSS", "Node.js", "Python", "IndexedDB"\n];`
       : `// Portfolio Projects Index\nconst projects = [\n  { name: "SQL Explorer", demo: "https://ekosup.github.io/sqlexplorer/" },\n  { name: "UMKM Dashboard", demo: "https://ekosup.github.io/umkm-dashboard/" },\n  { name: "KNotes", demo: "https://ekosup.github.io/knotes/" }\n];`;
@@ -20,7 +20,7 @@ export function HeroTerminal() {
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900 text-left font-mono shadow-sm text-xs sm:text-sm overflow-hidden">
+    <div className="w-full max-w-4xl mx-auto rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900 text-left font-mono shadow-sm text-xs sm:text-sm overflow-hidden">
       {/* Top Header */}
       <div className="bg-neutral-950 px-3 sm:px-4 py-2.5 border-b border-neutral-800 flex items-center justify-between gap-2 overflow-x-auto no-scrollbar">
         <div className="flex items-center space-x-2 sm:space-x-4 min-w-0">
@@ -64,7 +64,7 @@ export function HeroTerminal() {
       <div className="p-3.5 sm:p-5 text-neutral-300 overflow-x-auto leading-relaxed bg-[#0c0c0e]">
         {activeTab === "specs" && (
           <pre className="whitespace-pre-wrap break-all sm:whitespace-pre sm:break-normal">
-            <span className="text-neutral-500">// Eko Supriyono — Profile Spec</span>{'\n'}
+            <span className="text-neutral-500">// Eko Supriyono - Profile Spec</span>{'\n'}
             <span className="text-purple-400">export const</span> <span className="text-blue-400">profile</span> = &#123;{'\n'}
             {'  '}role: <span className="text-emerald-400">&quot;Full Stack Software Engineer&quot;</span>,{'\n'}
             {'  '}specialization: [{'\n'}

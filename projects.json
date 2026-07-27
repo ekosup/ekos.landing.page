@@ -1,12 +1,65 @@
 [
   {
+    "id": "satuchat",
+    "title": "SatuChat Enterprise Chatbot Orchestration",
+    "description": "Multi-tenant RAG-powered enterprise chatbot platform with hybrid vector search, knowledge base management, LLM gateway routing, and tool-augmented AI agents - 110+ features across 12 modules.",
+    "category": "Enterprise AI Platform",
+    "type": "case-study",
+    "badge": "Case Study",
+    "constraint": "Multi-Tenant Isolation & Enterprise-Grade RAG Pipeline",
+    "technologies": [
+      "Django 5 + Ninja API",
+      "Celery + Redis",
+      "Qdrant Vector DB",
+      "Azure OpenAI / Ollama",
+      "PostgreSQL",
+      "Docker + Nginx"
+    ],
+    "highlights": [
+      "Hybrid RAG retrieval (dense + sparse BM25) with semantic caching for token savings",
+      "Multi-provider LLM gateway: Azure, Ollama, OpenAI-compatible with circuit breaker",
+      "Tool-augmented agents: Text2SQL on live databases + web search enrichment"
+    ],
+    "link": "/work/satuchat",
+    "github": "",
+    "demo": "/work/satuchat",
+    "featured": true
+  },
+  {
+    "id": "spbe-data-platform",
+    "title": "National Gov Data Integration Gateway",
+    "description": "Multi-agency interoperability platform and API gateway enabling secure data exchange and real-time analytics across public sector databases.",
+    "category": "Enterprise System",
+    "type": "case-study",
+    "badge": "Case Study",
+    "constraint": "Strict Multi-Tenant Governance & Air-Gapped Deployment",
+    "technologies": [
+      "Next.js 16",
+      "TypeScript",
+      "PostgreSQL",
+      "Apache Kafka / RabbitMQ",
+      "Tailwind CSS"
+    ],
+    "highlights": [
+      "Unified API catalog for cross-department data pipelines",
+      "Role-based access matrix with multi-level security redaction",
+      "Automated compliance report generator for government audits"
+    ],
+    "link": "/work/spbe-data-platform",
+    "github": "",
+    "demo": "/work/spbe-data-platform",
+    "featured": true
+  },
+  {
     "id": "sqlexplorer",
-    "title": "SQL Explorer",
+    "title": "SQL Explorer Engine",
     "description": "Interactive, browser-based SQL query engine and schema inspector. Execute queries, analyze database tables, and visualize relational datasets completely client-side.",
     "category": "Database & Tools",
+    "type": "demo",
+    "badge": "Live Demo",
     "technologies": [
       "TypeScript",
-      "React",
+      "React 19",
       "SQLite / WASM",
       "Tailwind CSS",
       "SQL"
@@ -25,12 +78,14 @@
     "title": "UMKM Analytics Dashboard",
     "description": "Comprehensive business intelligence and financial operational dashboard built for Micro, Small, and Medium Enterprises (UMKM) to track revenue, inventory, and sales KPIs.",
     "category": "Business Intelligence",
+    "type": "demo",
+    "badge": "Live Demo",
     "technologies": [
-      "React",
+      "React 19",
       "TypeScript",
       "Tailwind CSS",
       "Recharts",
-      "Next.js"
+      "Next.js 16"
     ],
     "highlights": [
       "Real-time revenue & expense tracking",
@@ -46,8 +101,10 @@
     "title": "KNotes Markdown Workspace",
     "description": "Distraction-free, high-performance markdown notebook and knowledge management tool with instant full-text search, tag taxonomy, and local-first privacy.",
     "category": "Productivity",
+    "type": "demo",
+    "badge": "Live Demo",
     "technologies": [
-      "React",
+      "React 19",
       "TypeScript",
       "Markdown",
       "Tailwind CSS",
@@ -67,10 +124,12 @@
     "title": "Pranata Komputer Knowledge Base",
     "description": "Comprehensive documentation repository and interactive study platform for Pranata Komputer certification modules, covering enterprise IT architecture and governance.",
     "category": "Documentation",
+    "type": "demo",
+    "badge": "Live Demo",
     "technologies": [
       "MDX",
       "Fumadocs",
-      "Next.js",
+      "Next.js 16",
       "Tailwind CSS"
     ],
     "highlights": [
@@ -81,25 +140,5 @@
     "github": "https://github.com/ekosup/ekos-knowledge-repo",
     "demo": "/blogs",
     "featured": true
-  },
-  {
-    "id": "landing-page",
-    "title": "Ekos Portfolio Platform",
-    "description": "Next-generation developer portfolio and knowledge platform built with Next.js 16, React 19, and Fumadocs UI featuring high-contrast themes and interactive widgets.",
-    "category": "Web Platform",
-    "technologies": [
-      "Next.js",
-      "React 19",
-      "TypeScript",
-      "Tailwind CSS"
-    ],
-    "highlights": [
-      "Dark / Light theme system",
-      "MDX blog engine",
-      "Fluid responsive layout"
-    ],
-    "github": "https://github.com/ekosup/ekos.landing.page",
-    "demo": "https://ekosupriyono.dev",
-    "featured": false
   }
 ]

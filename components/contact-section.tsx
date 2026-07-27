@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Github, Linkedin, Copy, Check, ArrowUpRight, Send } from "lucide-react";
+import { Mail, Github, Linkedin, Copy, Check, ArrowUpRight, Send, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function ContactSection() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const emailAddress = "hello@ekos.my.id";
+  const whatsappNumber = "6281234567890"; // WhatsApp format
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(emailAddress);
@@ -15,22 +16,26 @@ export function ContactSection() {
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto py-12 sm:py-16">
+    <div className="w-full max-w-6xl mx-auto py-12 sm:py-16">
       <div className="mb-8 sm:mb-10 text-center md:text-left">
         <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 dark:text-neutral-400 block mb-2">
-          Contact & Collaboration
+          Contact & Communication
         </span>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-neutral-900 dark:text-white">
           Get in Touch
         </h2>
         <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mt-2 max-w-xl">
-          Available for senior full stack software engineering roles, technical advisory, and select freelance builds. Feel free to reach out directly.
+          Primary channel for enterprise proposals & senior engineering roles via Email. Secondary channel for quick chats & local client inquiries via WhatsApp.
         </p>
       </div>
 
       <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
-        {/* Email Card */}
-        <div className="p-4 sm:p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0d0d10] flex flex-col justify-between hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors max-w-full">
+        {/* Email Card (PRIMARY CHANNEL) */}
+        <div className="p-4 sm:p-6 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-[#0d0d10] flex flex-col justify-between hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors max-w-full shadow-xs relative overflow-hidden">
+          <div className="absolute top-3 right-3 text-[10px] font-mono text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 px-2 py-0.5 rounded">
+            Primary Channel
+          </div>
+
           <div>
             <div className="w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-900 flex items-center justify-center text-neutral-900 dark:text-white mb-4">
               <Mail className="w-5 h-5" />
@@ -40,7 +45,7 @@ export function ContactSection() {
               {emailAddress}
             </h3>
             <p className="text-xs text-neutral-500 dark:text-neutral-400 mb-6">
-              Best way for project inquiries and formal proposals.
+              Best for formal proposals, enterprise roles, and detailed project specifications.
             </p>
           </div>
 
@@ -65,57 +70,89 @@ export function ContactSection() {
           </div>
         </div>
 
-        {/* GitHub Card */}
-        <a
-          href="https://github.com/ekosup"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-4 sm:p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0d0d10] flex flex-col justify-between hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors group max-w-full"
-        >
-          <div>
-            <div className="w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-900 flex items-center justify-center text-neutral-900 dark:text-white mb-4">
-              <Github className="w-5 h-5" />
-            </div>
-            <span className="text-xs font-mono text-neutral-400 block mb-1">GitHub Profile</span>
-            <h3 className="text-sm sm:text-base font-bold text-neutral-900 dark:text-white mb-1 flex items-center justify-between gap-2 break-all sm:break-normal">
-              <span>github.com/ekosup</span>
-              <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors shrink-0" />
-            </h3>
-            <p className="text-xs text-neutral-500 dark:text-neutral-400">
-              Explore open-source repositories, WASM experiments, and public code.
-            </p>
+        {/* WhatsApp Card (SECONDARY CHANNEL) */}
+        <div className="p-4 sm:p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0d0d10] flex flex-col justify-between hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors max-w-full relative">
+          <div className="absolute top-3 right-3 text-[10px] font-mono text-neutral-400 bg-neutral-100 dark:bg-neutral-900 px-2 py-0.5 rounded">
+            Secondary / Quick Chat
           </div>
-          <div className="mt-6 pt-4 border-t border-neutral-100 dark:border-neutral-900/60 flex items-center text-xs font-mono text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-neutral-300 transition-colors">
-            <span>View Repositories</span>
-          </div>
-        </a>
 
-        {/* LinkedIn Card */}
-        <a
-          href="https://www.linkedin.com/in/esupriyono/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-4 sm:p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0d0d10] flex flex-col justify-between hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors group max-w-full"
-        >
           <div>
-            <div className="w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-900 flex items-center justify-center text-neutral-900 dark:text-white mb-4">
-              <Linkedin className="w-5 h-5" />
+            <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
+              <MessageSquare className="w-5 h-5" />
             </div>
-            <span className="text-xs font-mono text-neutral-400 block mb-1">LinkedIn Network</span>
-            <h3 className="text-sm sm:text-base font-bold text-neutral-900 dark:text-white mb-1 flex items-center justify-between gap-2 break-all sm:break-normal">
-              <span>in/esupriyono</span>
-              <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors shrink-0" />
+            <span className="text-xs font-mono text-neutral-400 block mb-1">WhatsApp Messaging</span>
+            <h3 className="text-sm sm:text-base font-bold text-neutral-900 dark:text-white mb-1">
+              Quick Chat
             </h3>
-            <p className="text-xs text-neutral-500 dark:text-neutral-400">
-              Connect professionally, view employment history, and send direct messages.
+            <p className="text-xs text-neutral-500 dark:text-neutral-400 mb-6">
+              Ideal for fast responses, local Indonesian client queries, and informal discussions.
             </p>
           </div>
-          <div className="mt-6 pt-4 border-t border-neutral-100 dark:border-neutral-900/60 flex items-center text-xs font-mono text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-neutral-300 transition-colors">
-            <span>Connect on LinkedIn</span>
+
+          <Button
+            asChild
+            variant="outline"
+            className="w-full border-emerald-300 dark:border-emerald-900/60 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 font-mono text-xs h-9 rounded-md"
+          >
+            <a
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Halo Eko, saya ingin berdiskusi mengenai proyek/kolaborasi.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-1.5"
+            >
+              <MessageSquare className="w-3.5 h-3.5" />
+              Start Quick Chat &rarr;
+            </a>
+          </Button>
+        </div>
+
+        {/* Professional Profiles Card (GitHub & LinkedIn) */}
+        <div className="p-4 sm:p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0d0d10] flex flex-col justify-between hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors max-w-full">
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-900 flex items-center justify-center text-neutral-900 dark:text-white">
+                <Github className="w-5 h-5" />
+              </div>
+              <div className="w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-900 flex items-center justify-center text-neutral-900 dark:text-white">
+                <Linkedin className="w-5 h-5" />
+              </div>
+            </div>
+            <span className="text-xs font-mono text-neutral-400 block mb-1">Professional Networks</span>
+            <h3 className="text-sm sm:text-base font-bold text-neutral-900 dark:text-white mb-1">
+              GitHub & LinkedIn
+            </h3>
+            <p className="text-xs text-neutral-500 dark:text-neutral-400 mb-6">
+              Review public repositories, career history, and technical writeups.
+            </p>
           </div>
-        </a>
+
+          <div className="flex flex-col gap-2">
+            <a
+              href="https://github.com/ekosup"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between px-3 py-2 rounded-md bg-neutral-50 dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-xs font-mono text-neutral-700 dark:text-neutral-300 transition-colors"
+            >
+              <span className="flex items-center gap-1.5">
+                <Github className="w-3.5 h-3.5" /> github.com/ekosup
+              </span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-neutral-400" />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/esupriyono/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between px-3 py-2 rounded-md bg-neutral-50 dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-xs font-mono text-neutral-700 dark:text-neutral-300 transition-colors"
+            >
+              <span className="flex items-center gap-1.5">
+                <Linkedin className="w-3.5 h-3.5" /> in/esupriyono
+              </span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-neutral-400" />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
-
