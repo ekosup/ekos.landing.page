@@ -90,9 +90,9 @@ export class NoteSearchEngine {
   const current = architectures[selectedTab];
 
   return (
-    <div className="w-full max-w-6xl mx-auto py-16">
+    <div className="w-full max-w-6xl mx-auto py-12 sm:py-16">
       {/* Header */}
-      <div className="mb-10">
+      <div className="mb-8 sm:mb-10">
         <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 dark:text-neutral-400 block mb-2">
           Engineering Architecture
         </span>
@@ -102,14 +102,14 @@ export class NoteSearchEngine {
       </div>
 
       {/* Tabs Bar */}
-      <div className="flex border-b border-neutral-200 dark:border-neutral-800 mb-8 space-x-6">
+      <div className="flex border-b border-neutral-200 dark:border-neutral-800 mb-8 space-x-4 sm:space-x-6 overflow-x-auto no-scrollbar max-w-full pb-1">
         {(Object.keys(architectures) as Array<keyof typeof architectures>).map((key) => {
           const item = architectures[key];
           return (
             <button
               key={key}
               onClick={() => setSelectedTab(key)}
-              className={`pb-3 text-xs sm:text-sm font-mono transition-colors relative ${
+              className={`pb-3 text-xs sm:text-sm font-mono transition-colors relative shrink-0 whitespace-nowrap ${
                 selectedTab === key
                   ? "text-neutral-900 dark:text-white font-semibold border-b-2 border-neutral-900 dark:border-white -mb-[1px]"
                   : "text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-300"
@@ -127,16 +127,16 @@ export class NoteSearchEngine {
         <div className="lg:col-span-6 space-y-6">
           <div>
             <span className="text-xs font-mono text-neutral-400 dark:text-neutral-500">{current.subtitle}</span>
-            <h3 className="text-2xl font-bold text-neutral-900 dark:text-white mt-1">{current.title}</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white mt-1">{current.title}</h3>
           </div>
 
-          <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+          <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
             {current.summary}
           </p>
 
           <div className="space-y-3 pt-2">
             {current.components.map((comp, idx) => (
-              <div key={idx} className="p-3.5 rounded-lg border border-neutral-200 dark:border-neutral-800/80 bg-neutral-50/50 dark:bg-neutral-900/40">
+              <div key={idx} className="p-3 sm:p-3.5 rounded-lg border border-neutral-200 dark:border-neutral-800/80 bg-neutral-50/50 dark:bg-neutral-900/40">
                 <h4 className="text-xs font-mono font-bold text-neutral-900 dark:text-white mb-1">
                   {comp.title}
                 </h4>
@@ -149,7 +149,7 @@ export class NoteSearchEngine {
         </div>
 
         {/* Right Code Column */}
-        <div className="lg:col-span-6">
+        <div className="lg:col-span-6 max-w-full">
           <div className="rounded-lg border border-neutral-200 dark:border-neutral-800 bg-[#0c0c0e] text-neutral-300 font-mono text-xs overflow-hidden shadow-xs">
             <div className="bg-neutral-950 px-4 py-2 border-b border-neutral-800 flex items-center justify-between">
               <span className="text-[11px] text-neutral-400 flex items-center gap-1.5">
@@ -158,8 +158,8 @@ export class NoteSearchEngine {
               <span className="text-[10px] text-neutral-500">TypeScript</span>
             </div>
 
-            <div className="p-4 overflow-x-auto leading-relaxed text-emerald-400">
-              <pre><code>{current.codeSnippet}</code></pre>
+            <div className="p-3.5 sm:p-4 overflow-x-auto leading-relaxed text-emerald-400">
+              <pre className="whitespace-pre-wrap break-all sm:whitespace-pre sm:break-normal"><code>{current.codeSnippet}</code></pre>
             </div>
           </div>
         </div>

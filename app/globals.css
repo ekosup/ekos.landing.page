@@ -200,11 +200,13 @@ code {
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.929 0.013 255.508);
 
-  /* Arrange docs layout: content + right sidebar (TOC) */
-  .nd-docs-layout {
-    display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 2rem;
+  /* Arrange docs layout: content + right sidebar (TOC) for desktop */
+  @media (min-width: 1024px) {
+    .nd-docs-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 2rem;
+    }
   }
 
   .nd-docs-layout aside {
@@ -446,4 +448,19 @@ code {
 
 .animation-delay-400 {
   animation-delay: 400ms;
+}
+
+/* Scrollbar hiding utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Base mobile overflow protection */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
 }

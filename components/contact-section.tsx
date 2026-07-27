@@ -15,28 +15,28 @@ export function ContactSection() {
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto py-16">
-      <div className="mb-10 text-center md:text-left">
+    <div className="w-full max-w-5xl mx-auto py-12 sm:py-16">
+      <div className="mb-8 sm:mb-10 text-center md:text-left">
         <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 dark:text-neutral-400 block mb-2">
           Contact & Collaboration
         </span>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-neutral-900 dark:text-white">
           Get in Touch
         </h2>
-        <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2 max-w-xl">
+        <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mt-2 max-w-xl">
           Available for senior full stack software engineering roles, technical advisory, and select freelance builds. Feel free to reach out directly.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
         {/* Email Card */}
-        <div className="p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0d0d10] flex flex-col justify-between hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors">
+        <div className="p-4 sm:p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0d0d10] flex flex-col justify-between hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors max-w-full">
           <div>
             <div className="w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-900 flex items-center justify-center text-neutral-900 dark:text-white mb-4">
               <Mail className="w-5 h-5" />
             </div>
             <span className="text-xs font-mono text-neutral-400 block mb-1">Direct Email</span>
-            <h3 className="text-base font-bold text-neutral-900 dark:text-white mb-1">
+            <h3 className="text-sm sm:text-base font-bold text-neutral-900 dark:text-white mb-1 break-all sm:break-normal">
               {emailAddress}
             </h3>
             <p className="text-xs text-neutral-500 dark:text-neutral-400 mb-6">
@@ -70,16 +70,16 @@ export function ContactSection() {
           href="https://github.com/ekosup"
           target="_blank"
           rel="noopener noreferrer"
-          className="p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0d0d10] flex flex-col justify-between hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors group"
+          className="p-4 sm:p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0d0d10] flex flex-col justify-between hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors group max-w-full"
         >
           <div>
             <div className="w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-900 flex items-center justify-center text-neutral-900 dark:text-white mb-4">
               <Github className="w-5 h-5" />
             </div>
             <span className="text-xs font-mono text-neutral-400 block mb-1">GitHub Profile</span>
-            <h3 className="text-base font-bold text-neutral-900 dark:text-white mb-1 flex items-center justify-between">
-              github.com/ekosup
-              <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors" />
+            <h3 className="text-sm sm:text-base font-bold text-neutral-900 dark:text-white mb-1 flex items-center justify-between gap-2 break-all sm:break-normal">
+              <span>github.com/ekosup</span>
+              <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors shrink-0" />
             </h3>
             <p className="text-xs text-neutral-500 dark:text-neutral-400">
               Explore open-source repositories, WASM experiments, and public code.
@@ -95,16 +95,16 @@ export function ContactSection() {
           href="https://www.linkedin.com/in/esupriyono/"
           target="_blank"
           rel="noopener noreferrer"
-          className="p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0d0d10] flex flex-col justify-between hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors group"
+          className="p-4 sm:p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0d0d10] flex flex-col justify-between hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors group max-w-full"
         >
           <div>
             <div className="w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-900 flex items-center justify-center text-neutral-900 dark:text-white mb-4">
               <Linkedin className="w-5 h-5" />
             </div>
             <span className="text-xs font-mono text-neutral-400 block mb-1">LinkedIn Network</span>
-            <h3 className="text-base font-bold text-neutral-900 dark:text-white mb-1 flex items-center justify-between">
-              in/esupriyono
-              <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors" />
+            <h3 className="text-sm sm:text-base font-bold text-neutral-900 dark:text-white mb-1 flex items-center justify-between gap-2 break-all sm:break-normal">
+              <span>in/esupriyono</span>
+              <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors shrink-0" />
             </h3>
             <p className="text-xs text-neutral-500 dark:text-neutral-400">
               Connect professionally, view employment history, and send direct messages.

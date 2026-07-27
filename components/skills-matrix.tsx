@@ -49,9 +49,9 @@ export function SkillsMatrix() {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <div className="w-full max-w-6xl mx-auto py-16">
+    <div className="w-full max-w-6xl mx-auto py-12 sm:py-16">
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-6">
         <div>
           <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 dark:text-neutral-400 block mb-2">
             Technical Competencies
@@ -74,7 +74,7 @@ export function SkillsMatrix() {
       </div>
 
       {/* Grid of Groups */}
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
         {skillGroups.map((group, gIdx) => {
           const filteredSkills = group.skills.filter(s => 
             s.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -84,7 +84,7 @@ export function SkillsMatrix() {
           if (filteredSkills.length === 0) return null;
 
           return (
-            <div key={gIdx} className="border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 bg-white dark:bg-[#0d0d10]">
+            <div key={gIdx} className="border border-neutral-200 dark:border-neutral-800 rounded-xl p-4 sm:p-6 bg-white dark:bg-[#0d0d10] max-w-full">
               <h3 className="text-xs font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-4 pb-2 border-b border-neutral-100 dark:border-neutral-800">
                 {group.category}
               </h3>
@@ -92,10 +92,10 @@ export function SkillsMatrix() {
               <div className="space-y-3">
                 {filteredSkills.map((skill, sIdx) => (
                   <div key={sIdx} className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 text-xs">
-                    <span className="font-mono font-bold text-neutral-900 dark:text-neutral-100">
+                    <span className="font-mono font-bold text-neutral-900 dark:text-neutral-100 shrink-0">
                       {skill.name}
                     </span>
-                    <span className="text-neutral-500 dark:text-neutral-400 text-right font-sans">
+                    <span className="text-neutral-500 dark:text-neutral-400 text-left sm:text-right font-sans">
                       {skill.detail}
                     </span>
                   </div>

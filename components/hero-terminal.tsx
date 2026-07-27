@@ -22,29 +22,29 @@ export function HeroTerminal() {
   return (
     <div className="w-full max-w-3xl mx-auto rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900 text-left font-mono shadow-sm text-xs sm:text-sm overflow-hidden">
       {/* Top Header */}
-      <div className="bg-neutral-950 px-4 py-2.5 border-b border-neutral-800 flex items-center justify-between">
-        <div className="flex items-center space-x-4">
-          <div className="flex space-x-1.5">
+      <div className="bg-neutral-950 px-3 sm:px-4 py-2.5 border-b border-neutral-800 flex items-center justify-between gap-2 overflow-x-auto no-scrollbar">
+        <div className="flex items-center space-x-2 sm:space-x-4 min-w-0">
+          <div className="hidden sm:flex space-x-1.5 shrink-0">
             <span className="w-2.5 h-2.5 rounded-full bg-neutral-700 inline-block" />
             <span className="w-2.5 h-2.5 rounded-full bg-neutral-700 inline-block" />
             <span className="w-2.5 h-2.5 rounded-full bg-neutral-700 inline-block" />
           </div>
-          <div className="flex space-x-2 text-xs">
+          <div className="flex space-x-1 sm:space-x-2 text-[11px] sm:text-xs shrink-0">
             <button
               onClick={() => setActiveTab("specs")}
-              className={`px-2 py-0.5 rounded ${activeTab === "specs" ? "bg-neutral-800 text-white font-medium" : "text-neutral-500 hover:text-neutral-300"}`}
+              className={`px-2 py-0.5 rounded transition-colors ${activeTab === "specs" ? "bg-neutral-800 text-white font-medium" : "text-neutral-500 hover:text-neutral-300"}`}
             >
               profile.ts
             </button>
             <button
               onClick={() => setActiveTab("stack")}
-              className={`px-2 py-0.5 rounded ${activeTab === "stack" ? "bg-neutral-800 text-white font-medium" : "text-neutral-500 hover:text-neutral-300"}`}
+              className={`px-2 py-0.5 rounded transition-colors ${activeTab === "stack" ? "bg-neutral-800 text-white font-medium" : "text-neutral-500 hover:text-neutral-300"}`}
             >
               stack.json
             </button>
             <button
               onClick={() => setActiveTab("manifest")}
-              className={`px-2 py-0.5 rounded ${activeTab === "manifest" ? "bg-neutral-800 text-white font-medium" : "text-neutral-500 hover:text-neutral-300"}`}
+              className={`px-2 py-0.5 rounded transition-colors ${activeTab === "manifest" ? "bg-neutral-800 text-white font-medium" : "text-neutral-500 hover:text-neutral-300"}`}
             >
               projects.json
             </button>
@@ -53,7 +53,7 @@ export function HeroTerminal() {
 
         <button
           onClick={copySnippet}
-          className="text-neutral-400 hover:text-white transition-colors p-1"
+          className="text-neutral-400 hover:text-white transition-colors p-1 shrink-0"
           title="Copy to clipboard"
         >
           {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
@@ -61,9 +61,9 @@ export function HeroTerminal() {
       </div>
 
       {/* Code Display */}
-      <div className="p-5 text-neutral-300 overflow-x-auto leading-relaxed bg-[#0c0c0e]">
+      <div className="p-3.5 sm:p-5 text-neutral-300 overflow-x-auto leading-relaxed bg-[#0c0c0e]">
         {activeTab === "specs" && (
-          <pre>
+          <pre className="whitespace-pre-wrap break-all sm:whitespace-pre sm:break-normal">
             <span className="text-neutral-500">// Eko Supriyono — Profile Spec</span>{'\n'}
             <span className="text-purple-400">export const</span> <span className="text-blue-400">profile</span> = &#123;{'\n'}
             {'  '}role: <span className="text-emerald-400">&quot;Full Stack Software Engineer&quot;</span>,{'\n'}
@@ -79,7 +79,7 @@ export function HeroTerminal() {
         )}
 
         {activeTab === "stack" && (
-          <pre>
+          <pre className="whitespace-pre-wrap break-all sm:whitespace-pre sm:break-normal">
             <span className="text-neutral-500">// Primary Engineering Stack</span>{'\n'}
             <span className="text-purple-400">export const</span> <span className="text-blue-400">stack</span> = [{'\n'}
             {'  '}<span className="text-amber-300">&quot;TypeScript&quot;</span>,{'\n'}
@@ -94,7 +94,7 @@ export function HeroTerminal() {
         )}
 
         {activeTab === "manifest" && (
-          <pre>
+          <pre className="whitespace-pre-wrap break-all sm:whitespace-pre sm:break-normal">
             <span className="text-neutral-500">// Portfolio Projects Directory</span>{'\n'}
             <span className="text-purple-400">export const</span> <span className="text-blue-400">featuredProjects</span> = [{'\n'}
             {'  '}&#123; name: <span className="text-cyan-300">&quot;SQL Explorer&quot;</span>, url: <span className="text-neutral-400">&quot;https://ekosup.github.io/sqlexplorer/&quot;</span> &#125;,{'\n'}
@@ -105,7 +105,7 @@ export function HeroTerminal() {
         )}
       </div>
 
-      <div className="bg-neutral-950 px-4 py-2 border-t border-neutral-800/80 flex items-center justify-between text-[11px] text-neutral-500">
+      <div className="bg-neutral-950 px-3 sm:px-4 py-2 border-t border-neutral-800/80 flex flex-col sm:flex-row gap-1 justify-between text-[10px] sm:text-[11px] text-neutral-500">
         <span>ISO / IEC 25010 Quality Standards</span>
         <span>UTF-8 • TSX</span>
       </div>

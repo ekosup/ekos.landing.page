@@ -36,9 +36,9 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
   });
 
   return (
-    <div className="w-full max-w-6xl mx-auto py-16">
+    <div className="w-full max-w-6xl mx-auto py-12 sm:py-16">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-6">
         <div>
           <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 dark:text-neutral-400 block mb-2">
             Selected Engineering Portfolio
@@ -61,12 +61,12 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex flex-wrap gap-2 mb-10 border-b border-neutral-200 dark:border-neutral-800 pb-4">
+      <div className="flex items-center gap-2 mb-8 sm:mb-10 border-b border-neutral-200 dark:border-neutral-800 pb-4 overflow-x-auto no-scrollbar max-w-full">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+            className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors shrink-0 ${
               selectedCategory === cat
                 ? "bg-neutral-900 dark:bg-white text-white dark:text-neutral-900"
                 : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800"
@@ -82,25 +82,25 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
         {filteredProjects.map((project, index) => (
           <div
             key={project.id}
-            className="group rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0d0d10] p-6 flex flex-col justify-between hover:border-neutral-400 dark:hover:border-neutral-600 transition-all duration-200 shadow-xs"
+            className="group rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0d0d10] p-4 sm:p-6 flex flex-col justify-between hover:border-neutral-400 dark:hover:border-neutral-600 transition-all duration-200 shadow-xs max-w-full"
           >
             <div>
               {/* Header Meta */}
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center justify-between gap-2 mb-4">
                 <span className="text-xs font-mono text-neutral-400 dark:text-neutral-500">
                   0{index + 1}
                 </span>
-                <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-800 px-2 py-0.5 rounded">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-800 px-2 py-0.5 rounded truncate max-w-[200px]">
                   {project.category}
                 </span>
               </div>
 
               {/* Title & Description */}
-              <h3 className="text-xl font-bold text-neutral-900 dark:text-white tracking-tight mb-2.5 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-neutral-900 dark:text-white tracking-tight mb-2.5 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors">
                 {project.title}
               </h3>
 
-              <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
                 {project.description}
               </p>
 
@@ -117,7 +117,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
               )}
 
               {/* Tech Stack Tags */}
-              <div className="flex flex-wrap gap-1.5 mb-8">
+              <div className="flex flex-wrap gap-1.5 mb-6 sm:mb-8">
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
@@ -130,11 +130,11 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex gap-3 pt-4 border-t border-neutral-100 dark:border-neutral-900">
+            <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 pt-4 border-t border-neutral-100 dark:border-neutral-900">
               <Button
                 asChild
                 size="sm"
-                className="flex-1 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-100 text-xs font-mono h-9 rounded-md"
+                className="w-full sm:flex-1 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-100 text-xs font-mono h-9 rounded-md"
               >
                 <a
                   href={project.demo}
@@ -150,7 +150,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                 asChild
                 variant="outline"
                 size="sm"
-                className="flex-1 border-neutral-200 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-xs font-mono h-9 rounded-md"
+                className="w-full sm:flex-1 border-neutral-200 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-xs font-mono h-9 rounded-md"
               >
                 <a
                   href={project.github}
