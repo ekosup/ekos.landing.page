@@ -70,6 +70,12 @@ export function Navbar() {
       >
        Contact
       </Link>
+      <Link
+       href="/hire-me"
+       className="px-3 py-1.5 rounded-md font-mono text-xs font-bold bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors shadow-xs"
+      >
+       Hire Me ✦
+      </Link>
 
       {/* Theme Toggle */}
       {mounted && (
@@ -89,6 +95,13 @@ export function Navbar() {
 
      {/* Mobile Toggle */}
      <div className="md:hidden flex items-center gap-3">
+      <Link
+       href="/hire-me"
+       className="px-2.5 py-1 rounded font-mono text-xs font-bold bg-neutral-900 dark:bg-white text-white dark:text-neutral-900"
+      >
+       Hire Me ✦
+      </Link>
+
       {mounted && (
        <button
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -116,6 +129,7 @@ export function Navbar() {
      <Link href={isHome ? "#architecture" : "/#architecture"} onClick={() => setMobileMenuOpen(false)} className="block text-neutral-700 dark:text-neutral-300">Architecture</Link>
      <Link href={isHome ? "#skills" : "/#skills"} onClick={() => setMobileMenuOpen(false)} className="block text-neutral-700 dark:text-neutral-300">Skills</Link>
      <Link href={isHome ? "#contact" : "/#contact"} onClick={() => setMobileMenuOpen(false)} className="block text-neutral-700 dark:text-neutral-300">Contact</Link>
+     <Link href="/hire-me" onClick={() => setMobileMenuOpen(false)} className="block font-bold text-emerald-600 dark:text-emerald-400 font-mono">Hire Me ✦</Link>
     </div>
    )}
   </header>
